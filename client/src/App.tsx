@@ -1,8 +1,11 @@
+import Header from "./components/Header"
+import TopBanner from "./components/TopBanner"
 
 function App() {
   return (
     <main className="app">
-      <p>Hello World</p>
+      <TopBanner />
+      <Header />
     </main>
   )
 }

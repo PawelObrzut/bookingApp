@@ -1,0 +1,14 @@
+$grey: rgb(150 150 150);
+$logo: rgb(217 50 137);
+$pink-light: rgb(184 41 108);
+$pink-dark: rgb(121 24 71);
+
+
+@mixin gradient-fill {
+  position: relative;
+  color: transparent; 
+  background-image: linear-gradient(to right, $pink-light, $pink-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+

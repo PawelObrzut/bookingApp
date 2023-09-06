@@ -1,0 +1,12 @@
+.topBanner {
+  position: fixed;
+  height: 15vh;
+  width: 100vw;
+  overflow: hidden;
+  img {
+    object-fit: none;
+    height: 100%;
+    width: 100%;
+    object-position: 50%;
+  }
+}

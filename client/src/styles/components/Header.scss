@@ -1,0 +1,37 @@
+// @use "../helper/colors" as *;
+@import "../helper/colors";
+
+.logoWrapper {
+  color: $logo;
+  font-weight: bold;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 1.5rem;
+}
+
+.header {
+  position: relative;
+  top: 16vh;
+  padding: 1.5rem 0rem;
+  border: solid 1px red;
+  color: $grey;
+  li {
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease-in;
+    
+    &:hover {
+      @include gradient-fill();
+      transition: color 0.3s ease-in;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
