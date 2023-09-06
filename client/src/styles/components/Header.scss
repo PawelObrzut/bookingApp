@@ -14,17 +14,41 @@
   padding: 1.5rem 0rem;
   border: solid 1px red;
   color: $grey;
-  li {
-    margin: 0 1rem;
-    cursor: pointer;
-    transition: color 0.3s ease-in;
-    
-    &:hover {
-      @include gradient-fill();
-      transition: color 0.3s ease-in;
-    }
+}
+
+/*
+ * Transition is not supported for the property of background-image
+ * properties a and b and chaning their color values on hover are a walk around
+ * this way the transition is smooth in and out.
+*/ 
+
+@property --a {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: $grey;
+}
+
+@property --b {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: $grey;
+}
+
+li {
+  margin: 0 1rem;
+  cursor: pointer;
+  transition: ease-in-out --a 0.3s, ease-in-out --b 0.3s;
+  background-image: linear-gradient(to right, var(--a), var(--b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  &:hover {
+    --a: #b8296c;
+    --b: #791847;
   }
 }
+
+// * end *
 
 .container {
   display: flex;
