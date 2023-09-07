@@ -1,6 +1,6 @@
 @use "helper" as *;
-@use "components/TopBanner.scss" as *;
-@use "components/Header.scss" as *;
+@use "../components/TopBanner/TopBanner.scss" as *;
+@use "../components/Header/Header.scss" as *;
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
@@ -16,4 +16,11 @@ body {
   background-color: black;
   color:white;
   margin-top:10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }

@@ -1,5 +1,5 @@
-import Header from "./components/Header"
-import TopBanner from "./components/TopBanner"
+import Header from "./components/Header/Header"
+import TopBanner from "./components/TopBanner/TopBanner"
 
 function App() {
   return (
