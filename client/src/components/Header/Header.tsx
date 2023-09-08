@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <header role='navigation' className='header'>
-      <section className='container container-small'>
+      <section className='nav-container'>
         <div className="header__logo-wrapper">
           <Link to="/">
             <span className='header__logo-wrapper--logo'>React Cinema</span>
@@ -46,6 +46,21 @@ const Header = () => {
                 </span>
               </span>
             </span>
+          </div>
+
+          <div className="menu__dropdown">
+            <ul className="menu__dropdown--list">
+              <li>
+                <Link to="/logging">
+                  <AiOutlineUser /> Log In
+                </Link>
+              </li>
+              <li>
+                <Link to="/register">
+                  <AiOutlineUser /> Register
+                </Link>
+              </li>
+            </ul>
           </div>
         </nav>
         
