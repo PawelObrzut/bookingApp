@@ -1,12 +1,14 @@
-import Header from "./components/Header/Header"
-import TopBanner from "./components/TopBanner/TopBanner"
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+
 
 function App() {
   return (
-    <main className="app">
-      <TopBanner />
-      <Header />
-    </main>
+    <div className="global-wrapper">
+      <Routes>
+        <Route path="/" element={<HomePage />}> </Route>
+      </Routes>
+    </div>
   )
 }
 

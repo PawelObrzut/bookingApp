@@ -1,6 +1,7 @@
 @use "helper" as *;
 @use "../components/TopBanner/TopBanner.scss" as *;
 @use "../components/Header/Header.scss" as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
@@ -9,18 +10,17 @@ body {
   font-family: 'Barlow', sans-serif;
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: black;
-  color:white;
-  margin-top:10px;
+a {
+  text-decoration: none;
 }
 
 .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5em;
+  // display: block;
+  text-align: left;
+  box-sizing: border-box
 }
+

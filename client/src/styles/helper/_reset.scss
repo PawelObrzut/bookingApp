@@ -21,12 +21,6 @@ body {
   line-height: 1.5;
 }
 
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;

@@ -1,123 +1,162 @@
-// @use "../helper/colors" as *;
-@import "../../styles/helper/colors";
-@import "../../styles/helper/breakpoints";
+@use "../../styles/helper" as *;
 
-.header {
-  position: relative;
-  top: 16vh;
-  padding: 1.5rem 0rem;
+$header-height: 65px;
+
+@mixin navigation-bar() {
   color: $grey;
-  background-color: $black;
-}
-
-.logoWrapper {
-  color: $logo;
-  font-weight: bold;
-  font-family: 'Alfa Slab One', cursive;
-  font-size: 1.5rem;
-}
-
-.header__sitenav {
-  display: none;
-}
-
-.header__sitenav--toggle-menu {
-  span {
-    padding-right: 0.5rem;
-    text-transform: uppercase;
+  text-transform: uppercase;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    li {
+      margin-left: 1rem;
+      cursor: pointer;
+    }
   }
 }
 
-.header__sitenav--toggle-icon {
+header.header {
+  background-color: $black;
   position: relative;
-  top: 0.1rem;
+  height: $header-height;
+  line-height: $header-height;
+  border: solid 1px white;
 }
-/*
- * Transition is not supported for the property of background-image
- * properties a and b and chaning their color values on hover are a walk around
- * this way the transition is smooth in and out.
-*/ 
+
+header.header .header__logo-wrapper {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  float: left;
+}
+
+.header__logo-wrapper--logo {
+  color: $logo;
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: 'Alfa Slab One', cursive;
+}
+
+.header__sitenav--mobile {
+  @include navigation-bar();
+    li {
+      transition: color ease-in-out 0.4s;
+      &:hover {
+        color: $white;
+      }
+      .header__sitenav--toggle-icon {
+        position: relative;
+        top: 0.1rem;
+        left: 0.1rem;
+        color: $white;
+      }
+    }
+}
 
 @property --a {
   syntax: '<color>';
   inherits: false;
   initial-value: $grey;
 }
-
 @property --b {
   syntax: '<color>';
   inherits: false;
   initial-value: $grey;
 }
 
-li {
-  text-transform: uppercase;
-  margin: 0 1rem;
-  cursor: pointer;
-  transition: ease-in-out --a 0.3s, ease-in-out --b 0.3s;
-  background-image: linear-gradient(to right, var(--a), var(--b));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  &:hover {
-    --a: #b8296c;
-    --b: #791847;
+.header__sitenav {
+  
+  @include navigation-bar();
+  display: none;
+  li {
+    transition: ease-in-out --a 0.3s, ease-in-out --b 0.3s;
+    background-image: linear-gradient(to right, var(--a), var(--b));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &:hover {
+      --a: #b8296c;
+      --b: #791847;
+    }
   }
 }
 
-// * end *
-
 .header__sitenav--dropdown-login {
-  display: none;
+  display: inline;
+  color: white;
 }
 
 .profile {
+  display: inline;
   color: $white;
-  padding: 1rem 2rem;
   border: 5px solid;
   border-image-source: linear-gradient(90deg, $pink-light, $pink-dark);
   border-image-slice: 1;
 }
 
-.profile__details__account {
-
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: text-shadow 0.4s ease-in-out;
-  &:hover {
-    text-shadow: 1px 1px 4px $white; 
-  }
-}
-
-.icon-account {
-  position: relative;
-  font-size: 1.5rem;
-  top: 0.3rem;
-  padding-right: 0.5rem;
-}
-
-.icon-arrow-down {
-  position: relative;
-  font-size: 1rem;
-  top: 0.2rem;
-  padding-left: 0.5rem;
-}
-
-@media (min-width: $breakpoint-medium) {
-
-}
 
 @media (min-width: $breakpoint-large) {
-  .header__sitenav--dropdown-login {
-    display: contents;
-  }
-  .header__sitenav--toggle-menu {
+  .header__sitenav--mobile {
     display: none;
   }
   .header__sitenav {
     display: contents;
   }
-  .header__sitenav--mobile {
-    display: none;
+  .header__sitenav--dropdown-login {
+    display: contents;
   }
 }
+
+
+// .profile {
+//   color: $white;
+//   padding: 1rem 2rem;
+//   border: 5px solid;
+//   border-image-source: linear-gradient(90deg, $pink-light, $pink-dark);
+//   border-image-slice: 1;
+// }
+
+// .profile__details__account {
+
+//   text-transform: uppercase;
+//   cursor: pointer;
+//   transition: text-shadow 0.4s ease-in-out;
+//   &:hover {
+//     text-shadow: 1px 1px 4px $white; 
+//   }
+// }
+
+// .icon-account {
+//   position: relative;
+//   font-size: 1.5rem;
+//   top: 0.3rem;
+//   padding-right: 0.5rem;
+// }
+
+// .icon-arrow-down {
+//   position: relative;
+//   font-size: 1rem;
+//   top: 0.2rem;
+//   padding-left: 0.5rem;
+// }
+
+// @media (min-width: $breakpoint-medium) {
+//   li {
+//     font-size: 1rem;
+//   }
+// }
+
+// @media (min-width: $breakpoint-large) {
+//   .header__sitenav--dropdown-login {
+//     display: contents;
+//   }
+//   .header__sitenav--toggle-menu {
+//     display: none;
+//   }
+//   .header__sitenav {
+//     display: contents;
+//   }
+//   .header__sitenav--mobile {
+//     display: none;
+//   }
