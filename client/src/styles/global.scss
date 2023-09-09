@@ -1,15 +1,16 @@
 @use "helper" as *;
-@use "../components/TopBanner/TopBanner.scss" as *;
-@use "../components/Header/Header.scss" as *;
+// @use "../components/TopBanner/TopBanner.scss" as *;
+// @use "../components/Header/Header.scss" as *;
+// @use "../components/ModalMenu/ModalMenu.scss" as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
 body {
-  background-color: black;
   font-family: 'Barlow', sans-serif;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }

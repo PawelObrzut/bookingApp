@@ -1,70 +1,44 @@
-// import React from 'react'
-import { AiOutlineMenu, AiOutlineUser } from 'react-icons/ai';
-import { BsChevronDown } from'react-icons/bs';
+import React from 'react';
+import classes from "./Header.module.scss";
 import { Link } from 'react-router-dom';
+import { BiMenuAltRight } from 'react-icons/bi'
+import { AiOutlineUser } from 'react-icons/ai'
+import { RiMenuAddFill } from 'react-icons/ri'
 
 const Header = () => {
   return (
-    <header role='navigation' className='header'>
-      <section className='nav-container'>
-        <div className="header__logo-wrapper">
-          <Link to="/">
-            <span className='header__logo-wrapper--logo'>React Cinema</span>
-          </Link>
+    <header className={classes.header}>
+      <div className={classes.header__content}>
+        <div className={classes.header__content__logo}>
+          <span>React Cinema</span>
         </div>
-
-        <nav className='header__sitenav--mobile'>
-          <ul className='container'>
-            <li>repertoire</li>
-            <li>
-              <span>Menu</span>
-              <AiOutlineMenu className="header__sitenav--toggle-icon" />
+        <nav className={classes.header__content__navMobile}>
+          <ul className={classes.header__content__list}>
+            <li><Link to="/repertoire">repertoire</Link></li>
+            <li className='header__content--toggle'>
+              <span>Menu</span><BiMenuAltRight />
             </li>
           </ul>
         </nav>
-
-        <nav className='header__sitenav'>
-          <ul className='container'>
-            <li>repertoire</li>
-            <li>events</li>
-            <li>discounts</li>
-            <li>news</li>
-            <li>schools</li>
+        <nav className={classes.header__content__navDesktop}>
+          <ul className={classes.header__content__list}>
+            <li><Link to="/repertoire">repertoire</Link></li>
+            <li><Link to="/events">events</Link></li>
+            <li><Link to="/discounts">discounts</Link></li>
+            <li><Link to="/news">news</Link></li>
           </ul>
-        </nav>
 
-        <nav className='header__sitenav--dropdown-login'>
-          <div className="profile">
-            <span className="profile__details">
-              <span className="icon icon-account">
-                <AiOutlineUser />
-              </span>
-              <span className="profile__details__account">
-                account
-                <span className="icon icon-arrow-down">
-                <BsChevronDown />
-                </span>
-              </span>
-            </span>
-          </div>
-
-          <div className="menu__dropdown">
-            <ul className="menu__dropdown--list">
-              <li>
-                <Link to="/logging">
-                  <AiOutlineUser /> Log In
-                </Link>
-              </li>
-              <li>
-                <Link to="/register">
-                  <AiOutlineUser /> Register
-                </Link>
-              </li>
-            </ul>
+          <div className={classes.header__content__account}>
+            <span>account</span>
+            <div className={classes.header__content__accountDropdown}>
+              <ul>
+                <li><AiOutlineUser /> <Link to="login">Log In</Link></li>
+                <li><RiMenuAddFill /> <Link to="register">Register</Link></li>
+              </ul>
+            </div>
           </div>
         </nav>
-        
-      </section>
+      </div>
     </header>
   )
 }
