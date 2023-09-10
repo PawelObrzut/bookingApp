@@ -1,17 +1,35 @@
 @use "helper" as *;
-// @use "../components/TopBanner/TopBanner.scss" as *;
-// @use "../components/Header/Header.scss" as *;
-// @use "../components/ModalMenu/ModalMenu.scss" as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
-body {
-  font-family: 'Barlow', sans-serif;
 
+.btn {
+  border-right: 3px solid $dark-pink;
+  border-left: 3px solid $light-pink;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2em;
+  cursor: pointer;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.btn:after, .btn:before {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  height: 3px;
+  background: $light-pink;
+  background: -moz-linear-gradient(left, $light-pink 0,$pink 48%, $dark-pink 100%);
+  background: -webkit-linear-gradient(left, $light-pink,$pink 48%, $dark-pink);
+  background: linear-gradient(90deg, $light-pink,$pink 48%, $dark-pink);
+}
+
+.btn:before {
+  top: 0;
+}
+
+.btn:after {
+  bottom: 0;
 }

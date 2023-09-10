@@ -33,8 +33,8 @@ const Header = () => {
             <li><Link to="/news">news</Link></li>
           </ul>
 
-          <div className={classes.header__content__account}>
-            <span>account</span>
+          <div className={`${classes.header__content__account} btn`}>
+            <span><AiOutlineUser className={classes.user__icon} /> account</span>
             <div className={classes.header__content__accountDropdown}>
               <ul>
                 <li><AiOutlineUser /> <Link to="login">Log In</Link></li>

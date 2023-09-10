@@ -19,6 +19,12 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: 'Barlow', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (prefers-reduced-motion: reduce) {

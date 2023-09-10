@@ -1,11 +1,14 @@
-import Header from "./components/Header/Header"
-import MenuModal from "./components/MenuModal/MenuModal"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <div className="global-wrapper">
-      <MenuModal />
-      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={ <HomePage /> }></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

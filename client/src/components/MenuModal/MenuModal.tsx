@@ -24,6 +24,8 @@ const MenuModal = () => {
           <li><Link to="/events">events</Link></li>
           <li><Link to="/discounts">discounts</Link></li>
           <li><Link to="/news">news</Link></li>
+          <li className={`${classes.inline} btn`}><Link to="/login">Log In</Link></li>
+          <li className={`${classes.inline} btn`}><Link to="/register">Register</Link></li>
         </ul>
       </nav>
 
