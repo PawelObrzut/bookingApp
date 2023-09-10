@@ -26,7 +26,11 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-    z-index: 100;
+    z-index: 10;
+
+    &__toggle {
+      cursor: pointer;
+    }
 
     &__logo {
       font-size: 1.5rem;

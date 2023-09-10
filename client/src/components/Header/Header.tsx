@@ -1,11 +1,14 @@
-import React from 'react';
 import classes from "./Header.module.scss";
 import { Link } from 'react-router-dom';
-import { BiMenuAltRight } from 'react-icons/bi'
-import { AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineUser, AiOutlineMenu } from 'react-icons/ai'
 import { RiMenuAddFill } from 'react-icons/ri'
+import { useAppDispatch } from '../../app/hooks';
+import { toggleMenu } from '../../features/menuModal/menuModalSlice';
+
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <header className={classes.header}>
       <div className={classes.header__content}>
@@ -15,8 +18,10 @@ const Header = () => {
         <nav className={classes.header__content__navMobile}>
           <ul className={classes.header__content__list}>
             <li><Link to="/repertoire">repertoire</Link></li>
-            <li className='header__content--toggle'>
-              <span>Menu</span><BiMenuAltRight />
+            <li className={classes.header__content__toggle}
+                onClick={() => dispatch(toggleMenu())}
+            >
+              <span>Menu</span> <AiOutlineMenu style={{"color": "rgb(250 250 250", "position":"relative", "top": "0.15rem"}} />
             </li>
           </ul>
         </nav>

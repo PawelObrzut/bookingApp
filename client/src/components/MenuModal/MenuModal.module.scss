@@ -1,0 +1,44 @@
+@use "../../styles/helper" as *;
+
+.menu__content {
+  position: fixed;
+  background: #000 url('/bg-hamburger-lozenge.png');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  color: $white;
+  z-index: 100;
+
+  right: -100%;
+  transition: right 0.5s ease-in-out;
+
+  &.visible {
+    right: 0;
+  }
+
+  &__closeButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2rem;
+    font-size: 1.5rem;
+    color: $grey;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  &__nav {
+    height: 80%;
+    width: 60%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    li {
+      margin-top: 0.25rem;
+    }
+  }
+}
