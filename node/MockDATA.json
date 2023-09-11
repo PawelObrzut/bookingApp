@@ -1,12 +1,9 @@
-{
-  "upcomming-titles" : [
+[
     {
       "id": 346698,
       "adult": false,
       "backdrop_path": "/nHf61UzkfFno5X1ofIhugCPus2R.jpg",
       "genres": ["Adventure", "Comedy", "Family"],
-      "original_language": "en",
-      "original_title": "Barbie",
       "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
       "popularity": 3712.487,
       "poster_path": "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
@@ -121,4 +118,3 @@
       ]
     }
   ]
-}
