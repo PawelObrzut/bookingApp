@@ -1,0 +1,67 @@
+What movieAPI database should look like:
+
+1. Movies Collection - most if not all is found in tmdb api.
+
+id: Unique identifier for the movie.
+title: Title of the movie.
+description: A brief description of the movie.
+releaseDate: Release date of the movie.
+trailerURL: URL to the movie's trailer.
+posterURL: URL to the movie's poster.
+reviews: An array of review objects or references to reviews.
+
+  type Movie {
+    id: ID!
+    title: String!
+    description: String!
+    releaseDate: Date!
+    trailerURL: String!
+    posterURL: String!
+    reviews: [Review!]!
+  }
+
+2. Reviews:
+
+id: Unique identifier for the review.
+movieId: Reference to the movie that the review belongs to.
+author: Author of the review.
+rating: Rating of the movie (e.g., on a scale of 1 to 5).
+comment: Text content of the review.
+
+type Review {
+  id: ID!
+  movieId: ID!
+  author: String!
+  rating: Float!
+  comment: String!
+}
+
+3. Theater Rooms to enable booking a ticket.
+
+id: Unique identifier for the theater room.
+name: Name or identifier for the theater room.
+capacity: Total seating capacity of the theater room.
+seats: Array or references to seat objects within the theater room.
+
+type TheaterRoom {
+  id: ID!
+  name: String!
+  capacity: Int!
+  seats: [Seat!]!
+}
+
+4. Seats to save the seat.
+
+id: Unique identifier for the seat.
+theaterRoomId: Reference to the theater room that the seat belongs to.
+row: Row number of the seat.
+number: Seat number within the row.
+isBooked: Boolean indicating if the seat is already booked.
+
+type Seat {
+  id: ID!
+  theaterRoomId: ID!
+  row: Int!
+  number: Int!
+  isBooked: Boolean!
+}
