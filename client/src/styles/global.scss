@@ -4,6 +4,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
 
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: $white;
+}
+
+.container {
+  padding: $padding-medium; 
+  
+  @media screen and (max-width: $breakpoint-small) {
+    padding: $padding-small;
+  }
+
+  @media screen and (min-width: $breakpoint-large) {
+    padding: $padding-large;
+  }
+}
+
 .btn {
   border-right: 3px solid $dark-pink;
   border-left: 3px solid $light-pink;

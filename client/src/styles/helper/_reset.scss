@@ -10,22 +10,24 @@
   font: inherit;
 }
 
-ul,
-ol {
-  list-style: none;
-}
-
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: 'Barlow', sans-serif;
+  color: white;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
+
+ul,
+ol {
+  list-style: none;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {

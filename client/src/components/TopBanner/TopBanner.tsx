@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GoTriangleDown } from "react-icons/go"
+import "./TopBanner.scss";
 
 const TopBanner = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

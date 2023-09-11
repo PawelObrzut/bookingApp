@@ -1,0 +1,9 @@
+@use "../styles/helper" as *;
+
+.main {
+  background-color: $black;
+  height: 100dvh;
+  &__content {
+
+  }
+}

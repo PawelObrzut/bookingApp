@@ -14,11 +14,12 @@
 .header {
   background-color: $black;
   height: $header-height;
-  padding: 1rem;
-
+  
   &__content {
+    // width: 100%;
+    // margin: 0 1rem;
+
     height: 100%;
-    margin: 0 auto;
     color: $grey;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
@@ -56,14 +57,14 @@
     }
 
     &__navMobile {
-      @media (min-width: $bp-large) {
+      @media (min-width: $breakpoint-large) {
         display: none;
       }
     }
 
     &__navDesktop {
       display: none;
-      @media (min-width: $bp-large) {
+      @media (min-width: $breakpoint-large) {
         display: contents;
       }
     }
@@ -87,7 +88,7 @@
       width: 200px;
       height: 100px;
       position: absolute;
-      top: calc(100% + 0.1rem);
+      top: 100%;
       left: -40%;
       padding: 1rem;
       background-color: $dark-grey;

@@ -2,6 +2,7 @@
 
 .top-banner {
   position: relative;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -19,8 +20,8 @@
   left: 0;
   width: 100%;
   height: inherit;
-  z-index: 0;
-  background-image: linear-gradient($pink-dark, $pink-light);
+  z-index: 1;
+  background-image: linear-gradient($dark-pink, $light-pink);
 }
 
 .container-small {

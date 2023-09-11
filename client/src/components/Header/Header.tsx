@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
-      <div className={classes.header__content}>
+      <div className={`${classes.header__content} container`} >
         <div className={classes.header__content__logo}>
           <span>React Cinema</span>
         </div>
