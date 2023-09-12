@@ -1,25 +1,25 @@
+import { ApolloServer } from 'apollo-server-express';
 import express, { Express, Request, Response } from "express";
+
 import dotenv from "dotenv";
-import { graphqlHTTP } from "express-graphql";
-const schema = require("./src/schemas/index");
+dotenv.config();
+const port = process.env.PORT;
 const cors = require('cors');
 
-dotenv.config();
+import { typeDefs } from "./src/schemas/TypeDefs";
+import { resolvers } from "./src/schemas/Resolvers";
 
 const app: Express = express();
-const port = process.env.PORT;
-
+const server = new ApolloServer({ typeDefs, resolvers });
 app.use(cors());
-app.get("/",  (req: Request, res: Response) => {
-  res.send("Czesc mordeczko")
-});
 
-app.use( "/graphql", graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
-);
+async function startApolloServer() {
+  await server.start();
+  server.applyMiddleware({ app });
+}
 
-app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
+startApolloServer().then(() => {
+  app.listen(port, () => {
+    console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
+  });
 });
