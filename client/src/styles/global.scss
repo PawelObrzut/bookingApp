@@ -20,6 +20,10 @@ h2 {
   @media screen and (min-width: $breakpoint-large) {
     padding: $padding-large;
   }
+
+  @media screen and (min-width: $breakpoint-xlarge) {
+    padding: $padding-xlarge;
+  }
 }
 
 .btn {
