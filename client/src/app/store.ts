@@ -1,6 +1,6 @@
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit'
-import menuModaReducer from '../features/menuModal/menuModalSlice';
-import moviesReducer from '../features/movies/moviesSlice';
+import menuModaReducer from '../features/menuModalSlice';
+import moviesReducer from "../features/moviesSlice";
 
 export const store = configureStore({
   reducer: {

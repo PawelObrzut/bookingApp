@@ -1,6 +1,6 @@
-import Carousel from '../components/Carousel/Carousel'
-import GradientBar from '../components/GradientBar/GradientBar';
-import "../styles/global.scss";
+import Carousel from '../../components/Carousel/Carousel'
+import GradientBar from '../../components/GradientBar/GradientBar';
+import "../../styles/global.scss";
 import classes from "./HomePage.module.scss";
 
 const HomePage = () => {

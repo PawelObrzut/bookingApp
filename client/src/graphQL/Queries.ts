@@ -1,12 +1,10 @@
-import { gql } from "@apollo/client";
+import gql from "graphql-tag"
 
 export const LOAD_MOVIES = gql`
-  query {
-    getAllMovies {
+  query getMovies {
+    getMovies {
       id
       title
-      overview
-      video
     }
-  }
+  },
 `
