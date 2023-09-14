@@ -5,6 +5,7 @@ export const LOAD_MOVIES = gql`
     getMovies {
       id
       title
+      poster_path
     }
   },
 `

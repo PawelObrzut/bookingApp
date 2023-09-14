@@ -43,9 +43,9 @@ h2 {
   left: 0;
   height: 3px;
   background: $light-pink;
-  background: -moz-linear-gradient(left, $light-pink 0,$pink 48%, $dark-pink 100%);
-  background: -webkit-linear-gradient(left, $light-pink,$pink 48%, $dark-pink);
-  background: linear-gradient(90deg, $light-pink,$pink 48%, $dark-pink);
+  background: -moz-linear-gradient(left, $light-pink, $pink 48%, $dark-pink 100%);
+  background: -webkit-linear-gradient(left, $light-pink, $pink 48%, $dark-pink);
+  background: linear-gradient(90deg, $light-pink, $pink 48%, $dark-pink);
 }
 
 .btn:before {

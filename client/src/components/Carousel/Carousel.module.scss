@@ -1,0 +1,82 @@
+@use "../../styles/helper" as *;
+
+.carousel {
+  text-transform: uppercase;
+  width: 100%;
+  &__content {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.card {
+  flex: 1;
+  box-shadow: 0px 0px 50px 10px rgba(175, 175, 175, 0.4);
+}
+
+.movie__title {
+  padding: $padding-small;
+  text-align: center;
+}
+
+.movie {
+  position: relative;
+
+  &__image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  &__tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, $light-pink, $dark-pink);
+    font-size: 0.7rem;
+    padding: 5px;
+    max-width: 60%;
+  }
+
+  &__details {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    &__span {
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  &__trailer {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(116, 116, 116, 0.6);
+    border: solid 2px $grey;
+    width: 100%;
+    height: 100%;
+    content: " ";
+    z-index: 8;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
