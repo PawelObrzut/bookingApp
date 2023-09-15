@@ -6,6 +6,7 @@ import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
 import classes from "./Carousel.module.scss";
 import { IMovie } from "../../types/types";
 import { PiPlayCircleThin } from "react-icons/pi";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 interface ICarouselCardProps {
   movie: IMovie
@@ -29,7 +30,6 @@ const CarouselCard = ({ movie, id }: ICarouselCardProps) => {
         </div>
       </div>
       <h1 className={classes.movie__title}>{movie.title}</h1>
-
     </li>
   )
 }
@@ -42,32 +42,25 @@ const Carousel = () => {
   const dispatch: ThunkDispatch<RootState, undefined, AnyAction> = useDispatch();
 
   const [cardIndex, setCardIndex] = useState(0);
-  const frameWidth = 100;
+  const frameWidth = 106.1;
 
   const slideLeftHandler = () => {
-    let newIndex = cardIndex;
-    if (newIndex > 0) {
-      newIndex -= 1;
-    }
-    translateFrame(newIndex);
-    setCardIndex(newIndex);
+    setCardIndex((index) => (index === 0 ? movies.length - 1 : index - 1));
+    translateFrame(cardIndex)
   }
 
   const slideRightHandler = () => {
-    let newIndex = cardIndex;
-    if (newIndex < movies.length - 1) {
-      newIndex += 1;
+    setCardIndex((index) => (index === movies.length - 1 ? 0 : index + 1));
+    translateFrame(cardIndex)
   }
-    translateFrame(newIndex);
-    setCardIndex(newIndex);
-  }
+
 
   const translateFrame = (index: number) => {
     const toTranslate = -frameWidth * index;
     movies.forEach((_movie, index) => {
       const frameElement = document.getElementById(index.toString());
       if (frameElement) {
-        frameElement.style.transform = `translateX(` + toTranslate +`%)`; 
+        frameElement.style.transform = `translateX(` + toTranslate + `%)`;
       }
     })
   }
@@ -88,13 +81,13 @@ const Carousel = () => {
     <div>
       <div className={classes.carousel}>
         <span className={classes.carousel__leftArrow} onClick={slideLeftHandler}>
-          ❰
+          <BsChevronLeft />
         </span>
         <ul className={classes.carousel__frame}>
-          {movies.map((movie, index) => <CarouselCard movie={movie} key={movie.id} id={index} />)}
+          {movies?.map((movie, index) => <CarouselCard movie={movie} key={movie.id} id={index} />)}
         </ul>
         <span className={classes.carousel__rightArrow} onClick={slideRightHandler}>
-          ❱
+          <BsChevronRight />
         </span>
       </div>
     </div>

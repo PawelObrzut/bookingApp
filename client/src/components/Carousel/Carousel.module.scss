@@ -33,15 +33,32 @@
   }
 }
 
-/*
-* with has to be adjusted in media queries to meet the space of different screen sizes. In Carousel.jsx a variable desribing the view size is *** translateFrame *** /line 64/
-*/
 .frame {
   height: 100%;
-  width: 25%;
+  width: calc(50% - 1rem);
   display: inline-block;
   vertical-align: top;
+  margin: 0.5rem;
+  transition: all ease-out 0.5s;
+  box-shadow: 0px 0px 15px 2px rgba(175, 175, 175, 0.4);
+}
 
+@media (min-width: $breakpoint-tablet) {
+  .frame {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+@media (min-width: $breakpoint-large) {
+  .frame {
+    width: calc(25% - 1rem);
+  }
+}
+
+@media (min-width: $breakpoint-xlarge) {
+  .frame {
+    width: calc(20% - 1rem);
+  }
 }
 
 .movie {
