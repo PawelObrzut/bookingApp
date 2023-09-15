@@ -2,53 +2,53 @@
 
 .carousel {
   position: relative;
-  text-transform: uppercase;
+  display: flex;
+  vertical-align: middle;
+  overflow: hidden;
   width: 100%;
-  &__content {
-    display: flex;
-    gap: 1rem;
-  }
-
-  &__prev {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 12;
-    cursor: pointer;
-    &:hover {
-      color: $primary;
-    }
-  }
-
-  &__next {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 12;
-    cursor: pointer;
-    &:hover {
-      color: $primary;
-    }
-  }
-}
-
-.card {
-  flex: 1;
-  box-shadow: 0px 0px 50px 10px rgba(175, 175, 175, 0.4);
-}
-
-.movie__title {
-  padding: $padding-small;
+  align-items: center;
   text-align: center;
+
+
+  &__leftArrow {
+    position: absolute;
+    font-size: 2rem;
+    left: 0;
+    cursor: pointer;
+  }
+
+  &__rightArrow {
+    position: absolute;
+    font-size: 2rem;
+    right: 0;
+    cursor: pointer;
+  }
+
+  &__frame {
+    width: 90vw;
+    margin: auto;
+    overflow-x: hidden;
+    white-space: nowrap;
+
+  }
+}
+
+/*
+* with has to be adjusted in media queries to meet the space of different screen sizes. In Carousel.jsx a variable desribing the view size is *** translateFrame *** /line 64/
+*/
+.frame {
+  height: 100%;
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+
 }
 
 .movie {
   position: relative;
 
   &__image {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     max-width: 100%;
     object-fit: cover;

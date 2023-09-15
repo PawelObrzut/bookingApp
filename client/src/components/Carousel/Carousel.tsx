@@ -6,18 +6,18 @@ import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
 import classes from "./Carousel.module.scss";
 import { IMovie } from "../../types/types";
 import { PiPlayCircleThin } from "react-icons/pi";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 interface ICarouselCardProps {
   movie: IMovie
+  id: number
 }
 
-const CarouselCard = ({ movie }: ICarouselCardProps) => {
+const CarouselCard = ({ movie, id }: ICarouselCardProps) => {
   return (
-    <li className={classes.card}>
+    <li className={classes.frame} id={id.toString()}>
       <div className={classes.movie}>
         <img className={classes.movie__image} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-        <div className={classes.movie__tag}>Premiere</div>
+        <span className={classes.movie__tag}>Premiere</span>
 
         <div className={classes.movie__bg}>
           <div className={`${classes.movie__details}`}>
@@ -29,6 +29,7 @@ const CarouselCard = ({ movie }: ICarouselCardProps) => {
         </div>
       </div>
       <h1 className={classes.movie__title}>{movie.title}</h1>
+
     </li>
   )
 }
@@ -40,29 +41,42 @@ const Carousel = () => {
   const error = useSelector((state: RootState) => state.movies.error);
   const dispatch: ThunkDispatch<RootState, undefined, AnyAction> = useDispatch();
 
+  const [cardIndex, setCardIndex] = useState(0);
+  const frameWidth = 100;
+
+  const slideLeftHandler = () => {
+    let newIndex = cardIndex;
+    if (newIndex > 0) {
+      newIndex -= 1;
+    }
+    translateFrame(newIndex);
+    setCardIndex(newIndex);
+  }
+
+  const slideRightHandler = () => {
+    let newIndex = cardIndex;
+    if (newIndex < movies.length - 1) {
+      newIndex += 1;
+  }
+    translateFrame(newIndex);
+    setCardIndex(newIndex);
+  }
+
+  const translateFrame = (index: number) => {
+    const toTranslate = -frameWidth * index;
+    movies.forEach((_movie, index) => {
+      const frameElement = document.getElementById(index.toString());
+      if (frameElement) {
+        frameElement.style.transform = `translateX(` + toTranslate +`%)`; 
+      }
+    })
+  }
+
   useEffect(() => {
     if (status === "idle") {
       dispatch(loadMovies());
     }
   }, [status, dispatch]);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleShiftLeft = () => {
-    // console.log(movies.slice(-1).concat(movies.slice(0, movies.length - 1)));
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? movies.length - 1 : prevIndex - 1
-    );
-  }
-
-  const handleShiftRight = () => {
-    // console.log(movies.slice(1, movies.length).concat(movies.slice(0, 1)));
-    setCurrentIndex((prevIndex) =>
-      prevIndex === movies.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const looppedMovies = [...movies.slice(currentIndex), ...movies.slice(0, currentIndex)];
 
   if (status === "loading") {
     return <div>Loading...</div>;
@@ -71,18 +85,17 @@ const Carousel = () => {
   }
 
   return (
-    <div className={classes.carousel}>
-      <div className={classes.carousel__prev} onClick={handleShiftLeft}>
-        <BsChevronLeft size={50} />
-      </div>
-      <ul className={`${classes.carousel__content} `}>
-        {looppedMovies
-          ?.map((movie: IMovie) => (
-            <CarouselCard key={movie.id} movie={movie} />
-          ))}
-      </ul>
-      <div className={classes.carousel__next} onClick={handleShiftRight}>
-        <BsChevronRight size={50} />
+    <div>
+      <div className={classes.carousel}>
+        <span className={classes.carousel__leftArrow} onClick={slideLeftHandler}>
+          ❰
+        </span>
+        <ul className={classes.carousel__frame}>
+          {movies.map((movie, index) => <CarouselCard movie={movie} key={movie.id} id={index} />)}
+        </ul>
+        <span className={classes.carousel__rightArrow} onClick={slideRightHandler}>
+          ❱
+        </span>
       </div>
     </div>
   )
