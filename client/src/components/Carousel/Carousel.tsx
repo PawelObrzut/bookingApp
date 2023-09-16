@@ -73,28 +73,8 @@ const Carousel = () => {
     });
 
     const newIndex = cardIndex === movies.length + 1 ? 0 : cardIndex + 1;
-
-    if (newIndex === movies.length) {
-      translateFrame(newIndex);
-      setCardIndex(newIndex);
-      
-      setTimeout(() => {
-        carouselItems.forEach((item) => {
-          (item as HTMLElement).style.transition = 'none';
-        });
-
-        const toTranslate = frameWidth;
-        carouselItems.forEach((item) => {
-          (item as HTMLElement).style.transform = `translateX(` + toTranslate + `%)`;
-        });
-
-      }, 600);
-      
-    } else {
-      console.log("else")
-      translateFrame(newIndex);
-      setCardIndex(newIndex);
-    }
+    setCardIndex(newIndex);
+    translateFrame(newIndex);
   }
 
   const translateFrame = (index: number) => {
