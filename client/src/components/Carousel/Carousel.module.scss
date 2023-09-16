@@ -1,5 +1,9 @@
 @use "../../styles/helper" as *;
 
+.initialPosition {
+  transform: translateX(-106.1%);
+}
+
 .carousel {
   position: relative;
   display: flex;
@@ -15,6 +19,10 @@
     font-size: 2rem;
     left: 0;
     cursor: pointer;
+    z-index: 20;
+    &:hover {
+      color: $primary
+    }
   }
 
   &__rightArrow {
@@ -22,10 +30,14 @@
     font-size: 2rem;
     right: 0;
     cursor: pointer;
+    z-index: 20;
+    &:hover {
+      color: $primary
+    }
   }
 
   &__frame {
-    width: 90vw;
+    width: 200%;
     margin: auto;
     overflow-x: hidden;
     white-space: nowrap;

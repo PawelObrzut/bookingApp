@@ -10,12 +10,12 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 interface ICarouselCardProps {
   movie: IMovie
-  id: number
+  index: number
 }
 
-const CarouselCard = ({ movie, id }: ICarouselCardProps) => {
+const CarouselCard = ({ movie, index }: ICarouselCardProps) => {
   return (
-    <li className={classes.frame} id={id.toString()}>
+    <li className={`${classes.frame} ${classes.initialPosition}`} id={`carouselitem` + index}>
       <div className={classes.movie}>
         <img className={classes.movie__image} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
         <span className={classes.movie__tag}>Premiere</span>
@@ -41,28 +41,68 @@ const Carousel = () => {
   const error = useSelector((state: RootState) => state.movies.error);
   const dispatch: ThunkDispatch<RootState, undefined, AnyAction> = useDispatch();
 
-  const [cardIndex, setCardIndex] = useState(0);
+  const carouselData = movies.length > 0 ? [movies[movies.length - 1], ...movies, ...movies] : [];
+
+  const [cardIndex, setCardIndex] = useState(1);
   const frameWidth = 106.1;
 
   const slideLeftHandler = () => {
-    setCardIndex((index) => (index === 0 ? movies.length - 1 : index - 1));
-    translateFrame(cardIndex)
+    const carouselItems = document.querySelectorAll(`.${classes.frame}`);
+    carouselItems.forEach((item) => {
+      (item as HTMLElement).style.transition = '';
+    });
+
+    const newIndex = cardIndex === 0 ? movies.length - 1 : cardIndex - 1;
+    setCardIndex(newIndex);
+    translateFrame(newIndex);
+
+    if (newIndex === 0) {
+      setTimeout(() => {
+        carouselItems.forEach((item) => {
+          (item as HTMLElement).style.transition = 'none';
+        });
+        translateFrame(movies.length);
+      }, 600);
+    }
   }
 
   const slideRightHandler = () => {
-    setCardIndex((index) => (index === movies.length - 1 ? 0 : index + 1));
-    translateFrame(cardIndex)
-  }
+    const carouselItems = document.querySelectorAll(`.${classes.frame}`);
+    carouselItems.forEach((item) => {
+      (item as HTMLElement).style.transition = '';
+    });
 
+    const newIndex = cardIndex === movies.length + 1 ? 0 : cardIndex + 1;
+
+    if (newIndex === movies.length) {
+      translateFrame(newIndex);
+      setCardIndex(newIndex);
+      
+      setTimeout(() => {
+        carouselItems.forEach((item) => {
+          (item as HTMLElement).style.transition = 'none';
+        });
+
+        const toTranslate = frameWidth;
+        carouselItems.forEach((item) => {
+          (item as HTMLElement).style.transform = `translateX(` + toTranslate + `%)`;
+        });
+
+      }, 600);
+      
+    } else {
+      console.log("else")
+      translateFrame(newIndex);
+      setCardIndex(newIndex);
+    }
+  }
 
   const translateFrame = (index: number) => {
     const toTranslate = -frameWidth * index;
-    movies.forEach((_movie, index) => {
-      const frameElement = document.getElementById(index.toString());
-      if (frameElement) {
-        frameElement.style.transform = `translateX(` + toTranslate + `%)`;
-      }
-    })
+    const carouselItems = document.querySelectorAll(`.${classes.frame}`);
+    carouselItems.forEach((item) => {
+      (item as HTMLElement).style.transform = `translateX(` + toTranslate + `%)`;
+    });
   }
 
   useEffect(() => {
@@ -84,7 +124,11 @@ const Carousel = () => {
           <BsChevronLeft />
         </span>
         <ul className={classes.carousel__frame}>
-          {movies?.map((movie, index) => <CarouselCard movie={movie} key={movie.id} id={index} />)}
+          {
+            carouselData?.map((movie, index) => (
+              <CarouselCard movie={movie} index={index} key={movie.title + index.toString()} />
+            ))
+          }
         </ul>
         <span className={classes.carousel__rightArrow} onClick={slideRightHandler}>
           <BsChevronRight />
