@@ -1,5 +1,6 @@
 import Carousel from '../../components/Carousel/Carousel'
 import GradientBar from '../../components/GradientBar/GradientBar';
+import InfiniteSlider from '../../components/InfiniteSlider/InfiniteSlider';
 import "../../styles/global.scss";
 import classes from "./HomePage.module.scss";
 
@@ -11,7 +12,8 @@ const HomePage = () => {
         <GradientBar />
         <div className={`${classes.main__content} container`}>
           <h2>Upcoming movies</h2>
-          <Carousel />
+          {/* <Carousel /> */}
+          <InfiniteSlider />
         </div>
       </main>
     </>

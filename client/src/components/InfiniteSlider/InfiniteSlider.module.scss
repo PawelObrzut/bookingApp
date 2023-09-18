@@ -1,0 +1,29 @@
+@use "../../styles/helper" as *;
+
+.card {
+  width: 95%;
+  text-align: center;
+  text-transform: uppercase;
+
+  &__image {
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+.arrow {
+  position: absolute;
+  color: $primary;
+  font-size: 3rem;
+  top: 30%;
+  z-index: 20;
+}
+
+.rightArrow {
+  right: 0;
+}
+
+.leftArrow {
+  left: 0;
+}
