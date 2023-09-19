@@ -1,0 +1,58 @@
+[
+  {
+    "id": "101",
+    "movieId": 346698,
+    "author": "User1",
+    "rating": 4.5,
+    "comment": "Great movie!"
+  },
+  {
+    "id": "102",
+    "movieId": 346698,
+    "author": "User2",
+    "rating": 3.8,
+    "comment": "Enjoyed it!"
+  },
+  {
+    "id": "103",
+    "movieId": 361743,
+    "author": "User1",
+    "rating": 4.5,
+    "comment": "Great movie!"
+  },
+  {
+    "id": "104",
+    "movieId": 890771,
+    "author": "User2",
+    "rating": 3.8,
+    "comment": "Enjoyed it!"
+  },
+  {
+    "id": "105",
+    "movieId": 980489,
+    "author": "User1",
+    "rating": 4.5,
+    "comment": "Great movie!"
+  },
+  {
+    "id": "106",
+    "movieId": 890771,
+    "author": "User2",
+    "rating": 3.8,
+    "comment": "Enjoyed it!"
+  },
+  {
+    "id": "107",
+    "movieId": 717930,
+    "author": "User1",
+    "rating": 4.5,
+    "comment": "Great movie!"
+  },
+  {
+    "id": "108",
+    "movieId": 717930,
+    "author": "User2",
+    "rating": 3.8,
+    "comment": "Enjoyed it!"
+  }
+]

@@ -1,11 +1,11 @@
-import DATA from "./MockDATA.json";
+import UpcommingMovies from "./UpcommingMovies.json";
 
 export const resolvers = {
   Query: {
     getMovies() {
-      return DATA
-    },
-  },
+      return UpcommingMovies;
+    }
+  }
 };
 
 module.exports = { resolvers };
