@@ -13,8 +13,10 @@
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  text-transform: uppercase;
   font-family: 'Barlow', sans-serif;
   color: white;
+  background-color: black;
 }
 
 a {

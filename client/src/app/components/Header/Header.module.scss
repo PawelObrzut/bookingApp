@@ -1,0 +1,73 @@
+@property --color-left {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgb(150 150 150);
+}
+@property --color-right {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgb(150 150 150);
+}
+
+.header {
+  letter-spacing: 0.1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100px;
+  color: white;
+  position: relative;
+
+  &__nav > ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    li {
+      transition: ease-in-out --color-left 0.3s, ease-in-out --color-right 0.3s;
+        background-image: linear-gradient(to right, var(--color-left), var(--color-right));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        &:hover {
+          --color-left: #b8296c;
+          --color-right: #791847;
+        }
+    }
+  }
+
+  &__nav.minimal {
+    @media (min-width: 1023px) {
+      display: none;
+    }
+  }
+
+  &__nav.full {
+    display: none;
+    @media (min-width: 1023px) {
+      display: inline-flex;
+    }
+  }
+}
+
+.logo {
+  color: rgb(217 50 137);
+  font-size: 1.5rem;
+  font-family: 'Alfa Slab One';
+  position: absolute;
+  left: 0;
+}
+
+.account {
+  color: white;
+  position: relative;
+  top: 1.5rem;
+  margin: 0 2rem;
+  height: 3rem;
+  width: 10rem;
+  text-align: center;
+  line-height: 3rem;
+
+  &__dropdown {
+    display: none;
+  }
+}

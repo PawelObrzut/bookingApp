@@ -18,5 +18,5 @@ export interface IMovie {
   video: string
   vote_average: number
   vote_count: number
-  reviews: IReviews[]
+  showTimes?: string[]
 }

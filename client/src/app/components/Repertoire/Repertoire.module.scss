@@ -1,0 +1,58 @@
+
+.movie {
+  border-top: solid 1px rgb(40, 39, 39);
+  padding: 3rem 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: 
+    "poster details"
+    "showtimes showtimes";
+
+  @media (min-width: 701px) {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+      "poster details"
+      "poster showtimes";
+  }
+
+  &__poster {
+    grid-area: poster;
+    
+    img {
+      object-fit: contain;
+      width: 100%;
+      box-shadow: 0px 0px 15px 5px rgba(175, 175, 175, 0.4);
+    }
+  }
+
+  &__details {
+    grid-area: details;
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      text-transform: none;
+      color: rgb(217 50 137);
+      font-weight: bold;
+    }
+  }
+
+  &__showtimes {
+    grid-area: showtimes;
+    display: flex;
+    gap: 1rem;
+
+    li {
+      font-size: 1.5rem;
+      width: 100%;
+      height: 3rem;
+      text-align: center;
+      line-height: 3rem;
+
+      &:hover {
+        background: linear-gradient(90deg, #c8006d, #a60059 48%, #7a0042);
+      }
+    }
+  }
+}
