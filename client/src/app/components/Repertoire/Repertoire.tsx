@@ -15,7 +15,7 @@ const Repertoire = () => {
       Repertoire
       {
         repertoire.map(movie => (
-          <div className={classes.movie}>
+          <div className={classes.movie} key={movie.id}>
 
             <div className={classes.movie__poster}>
               <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
@@ -23,7 +23,8 @@ const Repertoire = () => {
 
             <div className={classes.movie__details}>
               <h2>{movie.title}</h2>
-              <p>Buy ticket online and pay less!</p>
+              <span>Buy ticket online and pay less!</span>
+              <p className={classes.movie__overview}>{movie.overview}</p>
             </div>
 
             <ul className={classes.movie__showtimes}>

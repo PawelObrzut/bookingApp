@@ -3,11 +3,12 @@ import Slider from "react-slick";
 import MoviesCollection from './UpcommingMovies.json';
 import MovieCard from '../MovieCard/MovieCard';
 import { IMovie } from '../../../types/types';
+import classes from './UpcomingMovies.module.scss';
 
 const UpcommingMovies = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
-  const sliderRef = useRef<Slider | null>(null);
+  const sliderRef = useRef(null);
 
   const next = () => {
     if (sliderRef.current) {
@@ -29,7 +30,7 @@ const UpcommingMovies = () => {
     infinite: true,
     speed: 500,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1200,
@@ -59,20 +60,20 @@ const UpcommingMovies = () => {
   };
 
   return (
-    <section>
+    <section className={classes.slider}>
       <h2>Upcomming Movies</h2>
       <Slider ref={sliderRef} {...settings}>
         { movies.map((movie: IMovie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))}
       </Slider>
-      <div style={{ textAlign: "center" }}>
-        <button className="button" onClick={previous}>
-          Previous
-        </button>
-        <button className="button" onClick={next}>
-          Next
-        </button>
+      <div>
+        <span className={`${classes.arrow} ${classes.arrow__left}`} onClick={previous}>
+          &#10094;
+        </span>
+        <span className={`${classes.arrow} ${classes.arrow__right}`} onClick={next}>
+          &#10095;
+        </span>
       </div>
     </section>
   )
