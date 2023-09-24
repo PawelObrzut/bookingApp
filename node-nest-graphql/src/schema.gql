@@ -1,0 +1,24 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UpcomingMovie {
+  _id: ID!
+  backdrop_path: String!
+  genre_ids: [String!]!
+  id: Int!
+  original_language: String!
+  original_title: String!
+  overview: String!
+  popularity: Float!
+  poster_path: String!
+  release_date: String!
+  title: String!
+  video: String!
+  vote_average: Int!
+  vote_count: Int!
+}
+
+type Query {
+  movies: [UpcomingMovie!]!
+}

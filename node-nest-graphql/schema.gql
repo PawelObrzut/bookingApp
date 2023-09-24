@@ -1,0 +1,14 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Movie {
+  id: ID!
+  title: String!
+  overview: String
+  genres: [String!]!
+}
+
+type Query {
+  movies: [Movie!]!
+}
