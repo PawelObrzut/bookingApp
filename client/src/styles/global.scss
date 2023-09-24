@@ -1,8 +1,8 @@
 @use "helper" as *;
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
-
 
 h2 {
   text-transform: uppercase;
@@ -26,16 +26,15 @@ h2 {
   }
 }
 
-.btn {
+.theme_btn {
   border-right: 3px solid $dark-pink;
   border-left: 3px solid $light-pink;
   position: relative;
-  padding: 0.5rem 1rem;
   border-radius: 0.2em;
   cursor: pointer;
 }
 
-.btn:after, .btn:before {
+.theme_btn:after, .theme_btn:before {
   content: "";
   display: block;
   width: 100%;
@@ -48,10 +47,10 @@ h2 {
   background: linear-gradient(90deg, $light-pink, $pink 48%, $dark-pink);
 }
 
-.btn:before {
+.theme_btn:before {
   top: 0;
 }
 
-.btn:after {
+.theme_btn:after {
   bottom: 0;
 }

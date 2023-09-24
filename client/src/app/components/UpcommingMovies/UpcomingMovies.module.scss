@@ -1,0 +1,26 @@
+.slider {
+  position: relative;
+}
+
+.arrow {
+  font-size: 3rem;
+  color: white;
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+
+  &__left {
+    left: 0;
+    &:hover {
+      color: rgb(217 50 137);
+    }
+  }
+
+  &__right {
+    right: 0;
+    &:hover {
+      color: rgb(217 50 137);
+    }
+  }
+}
+

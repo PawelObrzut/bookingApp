@@ -1,0 +1,13 @@
+
+
+.locationBar {
+  width: 100dvw;
+  height: 65px;
+  background: rgba(0, 0, 0, 0) linear-gradient(to top, #050505 0%, #222222 100%) repeat scroll 0 0;
+  display: flex;
+  align-items: center;
+
+  &__location {
+    color: rgb(217 50 137);
+  }
+}
