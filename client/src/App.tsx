@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from "./pages/HomePage/HomePage";
 import Repertoire from "./app/containers/Repertoire/index";
 
-
 function App() {
   return (
     <>

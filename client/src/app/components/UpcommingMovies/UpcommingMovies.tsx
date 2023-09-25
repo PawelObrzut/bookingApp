@@ -4,8 +4,16 @@ import MoviesCollection from './UpcommingMovies.json';
 import MovieCard from '../MovieCard/MovieCard';
 import { IMovie } from '../../../types/types';
 import classes from './UpcomingMovies.module.scss';
+import upcommingMoviesService from '../../services/upcommingMoviesService';
 
 const UpcommingMovies = () => {
+  const fetchUpcomingMovies = async () => {
+    const upcomingMovies = await upcommingMoviesService.getAllMovies().catch(err => {
+      console.log('Error ', err)
+    });
+    console.log('The movies: ', upcomingMovies);
+  }
+
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   const sliderRef = useRef(null);
@@ -23,7 +31,8 @@ const UpcommingMovies = () => {
   };
 
   useEffect(() => {
-    setMovies(MoviesCollection as IMovie[])
+    setMovies(MoviesCollection as IMovie[]);
+    fetchUpcomingMovies();
   },[])
   
   const settings = {

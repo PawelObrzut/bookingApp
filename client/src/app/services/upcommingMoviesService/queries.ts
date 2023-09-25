@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 export const LOAD_MOVIES = gql`
   query movies {
-    movies {
+    getAllMovies {
       title
       _id
       video
