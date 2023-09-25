@@ -1,13 +1,9 @@
-import { Field, ID, ObjectType, Int, Float } from '@nestjs/graphql';
-import { Entity, ObjectIdColumn, ObjectId, Column } from 'typeorm';
+import { Field, InputType, Int, Float } from '@nestjs/graphql';
+import { Entity, Column } from 'typeorm';
 
 @Entity('upcomingMovies') // * passing an object like that { name: 'upcomingMovies' } would also work.
-@ObjectType()
-export class UpcomingMovie {
-  @ObjectIdColumn()
-  @Field(() => ID)
-  _id: ObjectId;
-
+@InputType()
+export class NewUpcomingMovieInput {
   @Field()
   @Column()
   backdrop_path: string;

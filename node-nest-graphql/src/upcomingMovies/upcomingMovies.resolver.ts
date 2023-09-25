@@ -1,6 +1,7 @@
-import { Resolver, Query } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { UpcomingMoviesService } from './upcomingMovies.service';
 import { UpcomingMovie } from './upcomingMovie.entity';
+import { NewUpcomingMovieInput } from './newUpcomingMovie.input';
 
 @Resolver('Movie')
 export class MoviesResolver {
@@ -15,5 +16,14 @@ export class MoviesResolver {
       console.error('Error fetching movies:', error);
       throw new Error('Unable to fetch movies.');
     }
+  }
+
+  @Mutation(() => UpcomingMovie)
+  async addUpcomingMovie(
+    @Args('newUpcomingMovieData') newUpcomingMovieData: NewUpcomingMovieInput,
+  ): Promise<UpcomingMovie> {
+    return await this.upcomingMoviesService.addUpcomingMovie(
+      newUpcomingMovieData,
+    );
   }
 }

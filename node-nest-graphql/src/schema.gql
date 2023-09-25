@@ -22,3 +22,23 @@ type UpcomingMovie {
 type Query {
   movies: [UpcomingMovie!]!
 }
+
+type Mutation {
+  addUpcomingMovie(newUpcomingMovieData: NewUpcomingMovieInput!): UpcomingMovie!
+}
+
+input NewUpcomingMovieInput {
+  backdrop_path: String!
+  genre_ids: [String!]!
+  id: Int!
+  original_language: String!
+  original_title: String!
+  overview: String!
+  popularity: Float!
+  poster_path: String!
+  release_date: String!
+  title: String!
+  video: String!
+  vote_average: Int!
+  vote_count: Int!
+}
