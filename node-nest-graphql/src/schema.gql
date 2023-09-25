@@ -20,7 +20,7 @@ type UpcomingMovie {
 }
 
 type Query {
-  movies: [UpcomingMovie!]!
+  getAllMovies: [UpcomingMovie!]!
 }
 
 type Mutation {

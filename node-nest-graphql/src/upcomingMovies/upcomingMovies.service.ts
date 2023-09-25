@@ -11,7 +11,7 @@ export class UpcomingMoviesService {
     private upcomingMovieRepository: MongoRepository<UpcomingMovie>,
   ) {}
 
-  async findAll(): Promise<UpcomingMovie[]> {
+  async getAllMovies(): Promise<UpcomingMovie[]> {
     return await this.upcomingMovieRepository.find();
   }
 

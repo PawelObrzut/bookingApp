@@ -8,9 +8,9 @@ export class MoviesResolver {
   constructor(private readonly upcomingMoviesService: UpcomingMoviesService) {}
 
   @Query(() => [UpcomingMovie])
-  async movies(): Promise<UpcomingMovie[]> {
+  async getAllMovies(): Promise<UpcomingMovie[]> {
     try {
-      const movies = await this.upcomingMoviesService.findAll();
+      const movies = await this.upcomingMoviesService.getAllMovies();
       return movies;
     } catch (error) {
       console.error('Error fetching movies:', error);
