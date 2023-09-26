@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadMovies } from "../../features/moviesSlice";
+import { loadMovies } from "../../app/features/upcomingMoviesSlice";
 import { RootState } from "../../app/store";
 import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
 import classes from "./Carousel.module.scss";
-import { IMovie } from "../../types/types";
+import { IMovie } from "../../app/types/types";
 import { PiPlayCircleThin } from "react-icons/pi";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 

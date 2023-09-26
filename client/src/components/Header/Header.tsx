@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineUser, AiOutlineMenu } from 'react-icons/ai'
 import { RiMenuAddFill } from 'react-icons/ri'
 import { useAppDispatch } from '../../app/hooks';
-import { toggleMenu } from '../../features/menuModalSlice';
+import { toggleMenu } from '../../app/features/menuModalSlice';
 
 
 const Header = () => {

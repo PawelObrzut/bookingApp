@@ -14,7 +14,7 @@
         "description": null,
         "fields": [
           {
-            "name": "movies",
+            "name": "getAllMovies",
             "description": null,
             "args": [],
             "type": {
@@ -28,7 +28,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "UpcomingMovie",
+                    "name": "Movie",
                     "ofType": null
                   }
                 }
@@ -45,7 +45,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "UpcomingMovie",
+        "name": "Movie",
         "description": null,
         "fields": [
           {
@@ -95,7 +95,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "String",
+                    "name": "Int",
                     "ofType": null
                   }
                 }
@@ -241,7 +241,7 @@
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -276,6 +276,18 @@
                 "name": "Int",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "inRepertoire",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -327,23 +339,33 @@
         "possibleTypes": null
       },
       {
+        "kind": "SCALAR",
+        "name": "Boolean",
+        "description": "The `Boolean` scalar type represents `true` or `false`.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "Mutation",
         "description": null,
         "fields": [
           {
-            "name": "addUpcomingMovie",
+            "name": "addMovie",
             "description": null,
             "args": [
               {
-                "name": "newUpcomingMovieData",
+                "name": "newMovieData",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "NewUpcomingMovieInput",
+                    "name": "NewMovieInput",
                     "ofType": null
                   }
                 },
@@ -355,7 +377,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "UpcomingMovie",
+                "name": "Movie",
                 "ofType": null
               }
             },
@@ -370,7 +392,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "NewUpcomingMovieInput",
+        "name": "NewMovieInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -402,7 +424,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "String",
+                    "name": "Int",
                     "ofType": null
                   }
                 }
@@ -530,7 +552,7 @@
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -561,6 +583,16 @@
                 "name": "Int",
                 "ofType": null
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "inRepertoire",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -910,16 +942,6 @@
             "deprecationReason": null
           }
         ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Boolean",
-        "description": "The `Boolean` scalar type represents `true` or `false`.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
         "possibleTypes": null
       },
       {

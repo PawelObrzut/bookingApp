@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './MovieCard.module.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { IMovie } from '../../../types/types';
+import { IMovie } from '../../types/types';
 
 
 const MovieCard = ({ movie }: { movie: IMovie }) => {

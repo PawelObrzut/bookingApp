@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RepertoireCollection from './Repertoire.json'
 import classes from './Repertoire.module.scss'
-import { IMovie } from '../../../types/types';
+import { IMovie } from '../../types/types';
 
 const Repertoire = () => {
   const [repertoire, setRepertire] = useState<IMovie[]>([]);

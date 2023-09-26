@@ -4,7 +4,7 @@ import classes from "./ModalMenu.module.scss";
 import { TfiClose } from 'react-icons/tfi';
 
 import { useAppSelector, useAppDispatch } from '../../hooks';
-import { toggleMenu } from '../../../features/menuModalSlice';
+import { toggleMenu } from '../../features/menuModalSlice';
 
 const MenuModal = () => {
   const isOpen = useAppSelector((state) => state.menuModal.isOpen)

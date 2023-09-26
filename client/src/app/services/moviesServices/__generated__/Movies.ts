@@ -4,21 +4,22 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: movies
+// GraphQL query operation: Movies
 // ====================================================
 
-export interface movies_movies {
-  __typename: "UpcomingMovie";
+export interface Movies_getAllMovies {
+  __typename: "Movie";
   title: string;
   _id: string;
-  video: string;
-  genre_ids: string[];
+  video: boolean;
+  genre_ids: number[];
   id: number;
   original_title: string;
   popularity: number;
   release_date: string;
+  inRepertoire: boolean | null;
 }
 
-export interface movies {
-  movies: movies_movies[];
+export interface Movies {
+  getAllMovies: Movies_getAllMovies[];
 }
