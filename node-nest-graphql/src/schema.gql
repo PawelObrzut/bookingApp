@@ -22,6 +22,7 @@ type Movie {
 
 type Query {
   getAllMovies: [Movie!]!
+  getMoviesGtReleaseDate(date: String!): [Movie!]!
 }
 
 type Mutation {

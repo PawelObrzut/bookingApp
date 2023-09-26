@@ -18,6 +18,12 @@ export class MoviesResolver {
     }
   }
 
+  @Query(() => [Movie])
+  async getMoviesGtReleaseDate(@Args('date') date: string): Promise<Movie[]> {
+    const movies = await this.moviesService.getMoviesGtReleaseDate(date);
+    return movies;
+  }
+
   @Mutation(() => Movie)
   async addMovie(
     @Args('newMovieData') newMovieData: NewMovieInput,

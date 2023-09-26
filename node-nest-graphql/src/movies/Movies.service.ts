@@ -15,6 +15,19 @@ export class MoviesService {
     return await this.movieRepository.find();
   }
 
+  async getMoviesGtReleaseDate(date: string): Promise<Movie[]> {
+    const movies = await this.movieRepository
+      .find({
+        where: {
+          release_date: { $gt: date },
+        },
+      })
+      .catch(() => {
+        new InternalServerErrorException();
+      });
+    return movies as Movie[];
+  }
+
   async addMovie(newMovieData: NewMovieInput): Promise<Movie> {
     const newMovie = this.movieRepository.create(newMovieData);
     await this.movieRepository.save(newMovie).catch(() => {
