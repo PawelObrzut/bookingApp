@@ -8,8 +8,8 @@ const initialState = {
   error: null,
 };
 
-const repertoire = createSlice({
-  name: "RepertoirePage",
+const movies = createSlice({
+  name: "AllMoviesCollection",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -28,4 +28,4 @@ const repertoire = createSlice({
 });
 
 
-export default repertoire.reducer;
+export default movies.reducer;
