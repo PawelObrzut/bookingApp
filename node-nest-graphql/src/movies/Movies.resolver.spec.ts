@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MoviesResolver } from './upcomingMovies.resolver';
+import { MoviesResolver } from './movies.resolver';
 
 describe('MoviesResolver', () => {
   let resolver: MoviesResolver;

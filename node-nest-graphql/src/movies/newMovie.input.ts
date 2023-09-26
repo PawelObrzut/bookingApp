@@ -1,20 +1,16 @@
-import { Field, ID, ObjectType, Int, Float } from '@nestjs/graphql';
-import { Entity, ObjectIdColumn, ObjectId, Column } from 'typeorm';
+import { Field, InputType, Int, Float } from '@nestjs/graphql';
+import { Entity, Column } from 'typeorm';
 
-@Entity('upcomingMovies') // * passing an object like that { name: 'upcomingMovies' } would also work.
-@ObjectType()
-export class UpcomingMovie {
-  @ObjectIdColumn()
-  @Field(() => ID)
-  _id: ObjectId;
-
+@Entity('movies') // * passing an object like that { name: 'movies' } would also work.
+@InputType()
+export class NewMovieInput {
   @Field()
   @Column()
   backdrop_path: string;
 
-  @Field(() => [String])
-  @Column('text', { array: true })
-  genre_ids: string[];
+  @Field(() => [Int])
+  @Column('int', { array: true })
+  genre_ids: number[];
 
   @Field(() => Int)
   @Column()
@@ -50,7 +46,7 @@ export class UpcomingMovie {
 
   @Field()
   @Column()
-  video: string;
+  video: boolean;
 
   @Field(() => Int)
   @Column()
@@ -59,4 +55,8 @@ export class UpcomingMovie {
   @Field(() => Int)
   @Column()
   vote_count: number;
+
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  inRepertoire: boolean;
 }

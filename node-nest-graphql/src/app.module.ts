@@ -4,7 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MoviesModule } from './upcomingMovies/upcomingMovies.module';
+import { MoviesModule } from './movies/Movies.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 
