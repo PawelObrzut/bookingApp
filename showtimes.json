@@ -1,0 +1,65 @@
+[
+  {
+    "movieId": 872585,
+    "theater": "Stockholm",
+    "dateTime": "2024-01-15T14:30:00Z",
+    "duration": "120min",
+    "availableSeats" : 25,
+    "totalSeats": 25,
+    "tickets": []
+  },
+  {
+    "movieId": 872585,
+    "theater": "Stockholm",
+    "dateTime": "2024-01-15T19:15:00Z",
+    "duration": "120min",
+    "availableSeats" : 25,
+    "totalSeats": 25,
+    "tickets": []
+  },
+  {
+    "movieId": 1000572,
+    "theater": "Stockholm",
+    "dateTime": "2024-01-15T11:10:00Z",
+    "duration": "120min",
+    "availableSeats" : 25,
+    "totalSeats": 25,
+    "tickets": []
+  },
+  {
+    "movieId": 1000572,
+    "theater": "Stockholm",
+    "dateTime": "2024-01-15T20:00:00Z",
+    "duration": "120min",
+    "availableSeats" : 25,
+    "totalSeats": 25,
+    "tickets": []
+  },
+  {
+    "movieId": 980489,
+    "theater": "Stockholm",
+    "dateTime": "2024-01-15T13:45:00Z",
+    "duration": "120min",
+    "availableSeats" : 25,
+    "totalSeats": 25,
+    "tickets": []
+  },
+  {
+    "movieId": 980489,
+    "theater": "Stockholm",
+    "dateTime": "2024-01-15T17:00:00Z",
+    "duration": "120min",
+    "availableSeats" : 25,
+    "totalSeats": 25,
+    "tickets": []
+  },
+  {
+    "movieId": 980489,
+    "theater": "Stockholm",
+    "dateTime": "2024-01-15T22:30:00Z",
+    "duration": "120min",
+    "availableSeats" : 25,
+    "totalSeats": 25,
+    "tickets": []
+  }
+]
