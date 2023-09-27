@@ -20,9 +20,21 @@ type Movie {
   inRepertoire: Boolean
 }
 
+type Showtime {
+  _id: ID!
+  movieId: Int!
+  theater: String!
+  dateTime: String!
+  duration: String!
+  availableSeats: Int!
+  totalSeats: Int!
+}
+
 type Query {
   getAllMovies: [Movie!]!
   getMoviesGtReleaseDate(date: String!): [Movie!]!
+  getRepertoire: [Movie!]!
+  getShowtimesByMovieId(movieId: Float!): [Showtime!]!
 }
 
 type Mutation {

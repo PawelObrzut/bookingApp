@@ -2,7 +2,7 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
 import { Movie } from './Movie.entity';
-import { NewMovieInput } from './newMovie.input';
+import { NewMovieInput } from './NewMovie.input';
 
 @Injectable()
 export class MoviesService {
@@ -12,7 +12,10 @@ export class MoviesService {
   ) {}
 
   async getAllMovies(): Promise<Movie[]> {
-    return await this.movieRepository.find();
+    const movies = await this.movieRepository.find().catch(() => {
+      new InternalServerErrorException();
+    });
+    return movies as Movie[];
   }
 
   async getMoviesGtReleaseDate(date: string): Promise<Movie[]> {
@@ -20,6 +23,19 @@ export class MoviesService {
       .find({
         where: {
           release_date: { $gt: date },
+        },
+      })
+      .catch(() => {
+        new InternalServerErrorException();
+      });
+    return movies as Movie[];
+  }
+
+  async getRepertoire(): Promise<Movie[]> {
+    const movies = await this.movieRepository
+      .find({
+        where: {
+          inRepertoire: { $eq: true },
         },
       })
       .catch(() => {

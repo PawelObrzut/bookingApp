@@ -5,6 +5,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MoviesModule } from './movies/Movies.module';
+import { ShowtimesModule } from './showtimes/Showtimes.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 
@@ -21,11 +22,12 @@ import { join } from 'path';
       url: `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}/?retryWrites=true&w=majority`,
       entities: [join(__dirname, '**/**.entity{.ts,.js}')],
       database: 'Movies-GraphQL',
-      synchronize: true, // ! I believe this needs to be removed before production and use migrations instead
+      synchronize: true,
       useNewUrlParser: true,
       logging: true,
     }),
     MoviesModule,
+    ShowtimesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
