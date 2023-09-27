@@ -4,21 +4,18 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: UpcomingMovies
+// GraphQL query operation: Repertoire
 // ====================================================
 
-export interface UpcomingMovies_getMoviesGtReleaseDate {
+export interface Repertoire_getRepertoire {
   __typename: "Movie";
   title: string;
   id: number;
-  release_date: string;
   poster_path: string;
+  original_language: string;
+  overview: string;
 }
 
-export interface UpcomingMovies {
-  getMoviesGtReleaseDate: UpcomingMovies_getMoviesGtReleaseDate[];
-}
-
-export interface UpcomingMoviesVariables {
-  date: string;
+export interface Repertoire {
+  getRepertoire: Repertoire_getRepertoire[];
 }

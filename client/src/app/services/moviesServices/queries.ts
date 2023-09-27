@@ -26,3 +26,15 @@ export const GET_MOVIES_GT_DATE = gql`
     }
   }
 `
+
+export const GET_REPERTOIRE = gql`
+  query Repertoire {
+    getRepertoire {
+      title,
+      id,
+      poster_path,
+      original_language,
+      overview
+    }
+  }
+`

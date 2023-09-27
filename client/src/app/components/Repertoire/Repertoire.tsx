@@ -1,20 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import RepertoireCollection from './Repertoire.json'
+import React, { useEffect } from 'react';
 import classes from './Repertoire.module.scss'
 import { IMovie } from '../../types/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { fetchRepertoire } from '../../services/moviesServices';
 
 const Repertoire = () => {
-  const [repertoire, setRepertire] = useState<IMovie[]>([]);
+  const repertoire = useSelector((state: RootState) => state.repertoire.repertoire);
+  const status = useSelector((state: RootState) => state.repertoire.status);
+  const error = useSelector((state: RootState) => state.repertoire.error);
+  const dispatch: ThunkDispatch<RootState, undefined, AnyAction> = useDispatch();
 
   useEffect(() => {
-    setRepertire(RepertoireCollection as IMovie[])
-  }, [])
+    if (status === "idle") {
+      dispatch(fetchRepertoire(true))
+    }
+  }, [status, dispatch]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  } else if (status === "failed") {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <main>
       Repertoire
       {
-        repertoire.map(movie => (
+        repertoire.map((movie: IMovie) => (
           <div className={classes.movie} key={movie.id}>
 
             <div className={classes.movie__poster}>
