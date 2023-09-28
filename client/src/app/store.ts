@@ -3,6 +3,7 @@ import menuModaReducer from './features/menuModalSlice';
 import moviesReducer from './features/moviesSlice';
 import sliderReducer from './features/sliderSlice';
 import repertoireReducer from './features/repertoireSlice';
+import seatingPlanReducer from './features/seatingPlanSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     movies: moviesReducer,
     slides: sliderReducer,
     repertoire: repertoireReducer,
+    seatingPlan: seatingPlanReducer,
   },
 })
 
