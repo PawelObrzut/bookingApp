@@ -34,7 +34,7 @@ type Query {
   getAllMovies: [Movie!]!
   getMoviesGtReleaseDate(date: String!): [Movie!]!
   getRepertoire: [Movie!]!
-  getShowtimesByMovieId(movieId: Float!): [Showtime!]!
+  getShowtimesByMovieId(movieId: Int!): [Showtime!]!
 }
 
 type Mutation {
