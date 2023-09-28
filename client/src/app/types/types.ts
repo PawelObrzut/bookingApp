@@ -21,3 +21,13 @@ export interface IMovie {
   showTimes?: string[]
   inRepertoire?: boolean
 }
+
+export interface IShowtime {
+  _id: string,
+  movieId: number
+  theater?: string
+  dateTime?: string
+  duration?: string
+  availableSeats?: number
+  totalSeats?: number
+}

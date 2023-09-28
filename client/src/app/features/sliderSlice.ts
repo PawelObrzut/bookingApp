@@ -27,5 +27,4 @@ const slider = createSlice({
   },
 });
 
-
 export default slider.reducer;

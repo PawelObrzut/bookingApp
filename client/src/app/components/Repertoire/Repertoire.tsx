@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { fetchRepertoire } from '../../services/moviesServices';
+import ShowTimes from '../Showtimes/Showtimes';
 
 const Repertoire = () => {
   const repertoire = useSelector((state: RootState) => state.repertoire.repertoire);
@@ -41,11 +42,9 @@ const Repertoire = () => {
               <p className={classes.movie__overview}>{movie.overview}</p>
             </div>
 
-            <ul className={classes.movie__showtimes}>
-              <li className='theme_btn'>15:20</li>
-              <li className='theme_btn'>18:00</li>
-              <li className='theme_btn'>21:10</li>
-            </ul>
+
+              <ShowTimes movieId={movie.id} className={classes.movie__showtimes} />
+
           </div>
         ))
       }

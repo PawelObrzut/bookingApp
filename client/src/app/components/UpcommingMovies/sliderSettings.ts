@@ -2,6 +2,7 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToScroll: 1,
+  slidesToShow: 5,
   arrows: false,
   responsive: [
     {
