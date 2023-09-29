@@ -14,8 +14,6 @@ export interface Showtimes_getShowtimesByMovieId {
   theater: string;
   dateTime: string;
   duration: string;
-  availableSeats: number;
-  totalSeats: number;
 }
 
 export interface Showtimes {

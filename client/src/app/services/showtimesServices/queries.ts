@@ -11,3 +11,15 @@ export const GET_SHOWTIMES = gql`
     }
   }
 `;
+
+export const GET_SEATS = gql`
+  query Seats($showtimeId: String!) {
+    getSeatsByShowtimeId(showtimeId: $showtimeId) {
+      seats {
+        row,
+        seat,
+        available
+      }
+    }
+  }
+`
