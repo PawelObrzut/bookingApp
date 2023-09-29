@@ -16,4 +16,15 @@ export class ShowtimesResolver {
       throw new Error('Unable to fetch showtimes');
     }
   }
+
+  @Query(() => Showtime)
+  async getSeatsByShowtimeId(
+    @Args('showtimeId', { type: () => String }) showtimeId: string,
+  ): Promise<Showtime> {
+    try {
+      return await this.showtimesService.getSeatsByShowtimeId(showtimeId);
+    } catch (err) {
+      throw new Error('Unable to fetch seats');
+    }
+  }
 }

@@ -1,6 +1,21 @@
 import { Field, ID, ObjectType, Int } from '@nestjs/graphql';
 import { Entity, ObjectIdColumn, ObjectId, Column } from 'typeorm';
 
+@ObjectType()
+export class Seat {
+  @Field(() => Int)
+  @Column()
+  row: number;
+
+  @Field(() => Int)
+  @Column()
+  seat: number;
+
+  @Field()
+  @Column()
+  available: boolean;
+}
+
 @Entity('showtimes')
 @ObjectType()
 export class Showtime {
@@ -24,11 +39,7 @@ export class Showtime {
   @Column()
   duration: string;
 
-  @Field(() => Int)
+  @Field(() => [Seat])
   @Column()
-  availableSeats: number;
-
-  @Field(() => Int)
-  @Column()
-  totalSeats: number;
+  seats: Seat[];
 }
