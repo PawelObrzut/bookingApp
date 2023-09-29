@@ -1,65 +1,108 @@
-[
-  {
-    "movieId": 872585,
-    "theater": "Stockholm",
-    "dateTime": "2024-01-15T14:30:00Z",
-    "duration": "120min",
-    "availableSeats" : 25,
-    "totalSeats": 25,
-    "tickets": []
-  },
-  {
-    "movieId": 872585,
-    "theater": "Stockholm",
-    "dateTime": "2024-01-15T19:15:00Z",
-    "duration": "120min",
-    "availableSeats" : 25,
-    "totalSeats": 25,
-    "tickets": []
-  },
-  {
-    "movieId": 1000572,
-    "theater": "Stockholm",
-    "dateTime": "2024-01-15T11:10:00Z",
-    "duration": "120min",
-    "availableSeats" : 25,
-    "totalSeats": 25,
-    "tickets": []
-  },
-  {
-    "movieId": 1000572,
-    "theater": "Stockholm",
-    "dateTime": "2024-01-15T20:00:00Z",
-    "duration": "120min",
-    "availableSeats" : 25,
-    "totalSeats": 25,
-    "tickets": []
-  },
-  {
-    "movieId": 980489,
-    "theater": "Stockholm",
-    "dateTime": "2024-01-15T13:45:00Z",
-    "duration": "120min",
-    "availableSeats" : 25,
-    "totalSeats": 25,
-    "tickets": []
-  },
-  {
-    "movieId": 980489,
-    "theater": "Stockholm",
-    "dateTime": "2024-01-15T17:00:00Z",
-    "duration": "120min",
-    "availableSeats" : 25,
-    "totalSeats": 25,
-    "tickets": []
-  },
-  {
-    "movieId": 980489,
-    "theater": "Stockholm",
-    "dateTime": "2024-01-15T22:30:00Z",
-    "duration": "120min",
-    "availableSeats" : 25,
-    "totalSeats": 25,
-    "tickets": []
-  }
-]
+[{
+  "movieId": 980489,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T17:00:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+},
+{
+  "movieId": 872585,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T14:30:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+},
+{
+  "movieId": 1000572,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T20:00:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+},
+{
+  "movieId": 872585,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T19:15:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+},
+{
+  "movieId": 980489,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T13:45:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+},
+{
+  "movieId": 980489,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T22:30:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+},
+{
+  "movieId": 1000572,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T11:10:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+},
+{
+  "movieId": 980489,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T10:00:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+},
+{
+  "movieId": 1053544,
+  "theater": "Stockholm",
+  "dateTime": "2024-01-15T18:00:00Z",
+  "duration": "120min",
+  "seats": [
+    { "row": 1, "seat": 1, "available": true }, { "row": 1, "seat": 2, "available": true }, { "row": 1, "seat": 3, "available": true }, { "row": 1, "seat": 4, "available": true },
+    { "row": 2, "seat": 1, "available": true }, { "row": 2, "seat": 2, "available": true }, { "row": 2, "seat": 3, "available": true }, { "row": 2, "seat": 4, "available": true },
+    { "row": 3, "seat": 1, "available": true }, { "row": 3, "seat": 2, "available": true }, { "row": 3, "seat": 3, "available": true }, { "row": 3, "seat": 4, "available": true },
+    { "row": 4, "seat": 1, "available": true }, { "row": 4, "seat": 2, "available": true }, { "row": 4, "seat": 3, "available": true }, { "row": 4, "seat": 4, "available": true }
+  ]
+}]
