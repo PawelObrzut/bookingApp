@@ -28,6 +28,11 @@ export interface IShowtime {
   theater?: string
   dateTime?: string
   duration?: string
-  availableSeats?: number
-  totalSeats?: number
+  seats?: Seat[]
+}
+
+export interface Seat {
+  row: number,
+  seat: number,
+  available: boolean
 }

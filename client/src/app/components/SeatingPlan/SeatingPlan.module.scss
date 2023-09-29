@@ -14,10 +14,30 @@
     right: 0;
   }
 
-  button {
-    float: right;
+  &__closeButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2rem;
+    font-size: 1.5rem;
+    // color: $grey;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  &__title {
+    position: relative;
+    top: 10%;
+    font-size: 2rem;
+  }
+
+  &__time {
+    position: relative;
+    top: 10%;
+    font-size: 1.5rem;
   }
 }
+
 
 table {
   position: relative;
@@ -34,7 +54,7 @@ table {
     border: solid 1px white;
     border-top-left-radius: 45%;
     border-top-right-radius: 45%;
-    background-color: rgb(0, 80, 0);
+    // background-color: rgb(0, 80, 0);
     content: "";
     cursor: pointer;
   }
@@ -49,4 +69,20 @@ table {
   background-color: rgba(40, 40, 40, 0.8);
   border-color: rgba(77, 77, 77, 0.8);
   cursor: not-allowed;
+}
+
+.available {
+  background-color: rgb(0, 80, 0);
+}
+
+.screen {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 2rem solid rgb(255, 255, 255);
+
 }

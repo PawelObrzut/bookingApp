@@ -3,7 +3,7 @@ import { Showtimes_getShowtimesByMovieId } from '../../services/showtimesService
 import { useEffect, useState } from 'react';
 import { IShowtime } from '../../types/types';
 import { useAppDispatch } from '../../hooks';
-import { toggleSeatingPlan } from '../../features/seatingPlanSlice';
+import { toggleSeatingPlan, setMovieDetails } from '../../features/seatingPlanSlice';
 
 const ShowTimes = ({ movieId, className }: { movieId: number, className: string }) => {
   const dispatch = useAppDispatch();
@@ -14,7 +14,7 @@ const ShowTimes = ({ movieId, className }: { movieId: number, className: string 
     const fetchShowtimes = async () => {
       try {
         const data = await ShowtimesService.fetchShowtimes(movieId)
-        setShowtimes(data); 
+        setShowtimes(data);
       } catch (error) {
         console.error('Error fetching showtimes:', error);
       }
@@ -26,9 +26,22 @@ const ShowTimes = ({ movieId, className }: { movieId: number, className: string 
   return (
     <ul className={className}>
       {
-        showtimes.map((showtime: IShowtime) => (
-          <li className='theme_btn' key={showtime._id} onClick={() => dispatch(toggleSeatingPlan())}>
-            {showtime.dateTime?.slice(11,16)}
+        [...showtimes]
+          .sort((prev, next) => new Date(prev.dateTime).getTime() - new Date(next.dateTime).getTime())
+          .map((showtime: IShowtime) => (
+          <li 
+            className='theme_btn' 
+            key={showtime._id} 
+            onClick={() => {
+              dispatch(toggleSeatingPlan())
+              dispatch(setMovieDetails({
+                movieId: movieId,
+                showtimeId: showtime._id,
+                time: showtime.dateTime?.slice(11, 16)
+              }))
+            }}
+          >
+            {showtime.dateTime?.slice(11, 16)}
           </li>
         ))
       }

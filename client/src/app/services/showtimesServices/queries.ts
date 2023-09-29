@@ -8,8 +8,6 @@ export const GET_SHOWTIMES = gql`
       theater
       dateTime
       duration
-      availableSeats
-      totalSeats
     }
   }
 `;
