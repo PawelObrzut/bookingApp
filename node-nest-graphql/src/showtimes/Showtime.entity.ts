@@ -23,6 +23,10 @@ export class Showtime {
   @Field(() => ID)
   _id: ObjectId;
 
+  @Field()
+  @Column()
+  uuid: string;
+
   @Field(() => Int)
   @Column()
   movieId: number;

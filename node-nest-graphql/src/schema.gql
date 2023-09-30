@@ -28,6 +28,7 @@ type Seat {
 
 type Showtime {
   _id: ID!
+  uuid: String!
   movieId: Int!
   theater: String!
   dateTime: String!
@@ -40,7 +41,7 @@ type Query {
   getMoviesGtReleaseDate(date: String!): [Movie!]!
   getRepertoire: [Movie!]!
   getShowtimesByMovieId(movieId: Int!): [Showtime!]!
-  getSeatsByShowtimeId(showtimeId: String!): Showtime!
+  getSeatsByShowtimeUuid(showtimeUuid: String!): Showtime!
 }
 
 type Mutation {

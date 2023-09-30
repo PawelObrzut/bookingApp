@@ -36,7 +36,7 @@ const ShowTimes = ({ movieId, className }: { movieId: number, className: string 
               dispatch(toggleSeatingPlan())
               dispatch(setMovieDetails({
                 movieId: movieId,
-                showtimeId: showtime._id,
+                showtimeUuid: showtime.uuid,
                 time: showtime.dateTime?.slice(11, 16)
               }))
             }}

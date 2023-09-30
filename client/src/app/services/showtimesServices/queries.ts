@@ -4,6 +4,7 @@ export const GET_SHOWTIMES = gql`
   query Showtimes($movieId: Int!) {
     getShowtimesByMovieId(movieId: $movieId) {
       _id
+      uuid
       movieId
       theater
       dateTime
@@ -13,8 +14,8 @@ export const GET_SHOWTIMES = gql`
 `;
 
 export const GET_SEATS = gql`
-  query Seats($showtimeId: String!) {
-    getSeatsByShowtimeId(showtimeId: $showtimeId) {
+  query Seats($showtimeUuid: String!) {
+    getSeatsByShowtimeUuid(showtimeUuid: $showtimeUuid) {
       seats {
         row,
         seat,

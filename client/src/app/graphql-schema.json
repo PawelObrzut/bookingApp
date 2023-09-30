@@ -140,11 +140,11 @@
             "deprecationReason": null
           },
           {
-            "name": "getSeatsByShowtimeId",
+            "name": "getSeatsByShowtimeUuid",
             "description": null,
             "args": [
               {
-                "name": "showtimeId",
+                "name": "showtimeUuid",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -496,6 +496,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             },

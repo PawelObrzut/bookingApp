@@ -1,7 +1,7 @@
 import client from '../../../apollo/apollo';
 import { GET_SHOWTIMES, GET_SEATS } from './queries';
 import { Showtimes_getShowtimesByMovieId } from '../showtimesServices/__generated__/Showtimes';
-import { Seats_getSeatsByShowtimeId_seats } from '../showtimesServices/__generated__/Seats';
+import { Seats_getSeatsByShowtimeUuid_seats } from '../showtimesServices/__generated__/Seats';
 
 class ShowtimesService {
   public async fetchShowtimes(movieId: number): Promise<Showtimes_getShowtimesByMovieId[]> {
@@ -23,12 +23,12 @@ class ShowtimesService {
     return [];
   }
 
-  public async fetchSeats(showtimeId: string): Promise<Seats_getSeatsByShowtimeId_seats[]> {
+  public async fetchSeats(showtimeUuid: string): Promise<Seats_getSeatsByShowtimeUuid_seats[]> {
     const response = await client
       .query({
         query: GET_SEATS,
         variables: {
-          showtimeId: showtimeId
+          showtimeUuid: showtimeUuid
         },
       })
       .catch((err) => {
@@ -36,7 +36,7 @@ class ShowtimesService {
       });
 
       if (response && response.data) {
-        return response.data.getSeatsByShowtimeId.seats;
+        return response.data.getSeatsByShowtimeUuid.seats;
       }
       return [];
   }

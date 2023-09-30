@@ -41,10 +41,8 @@ const Repertoire = () => {
               <span>Buy ticket online and pay less!</span>
               <p className={classes.movie__overview}>{movie.overview}</p>
             </div>
-
-
-              <ShowTimes movieId={movie.id} className={classes.movie__showtimes} />
-
+            
+            <ShowTimes movieId={movie.id} className={classes.movie__showtimes} />
           </div>
         ))
       }

@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Showtime } from './Showtime.entity';
-import { MongoRepository, ObjectIdColumn } from 'typeorm';
+import { MongoRepository } from 'typeorm';
 
 @Injectable()
 export class ShowtimesService {
@@ -14,7 +14,7 @@ export class ShowtimesService {
     const showtimes = await this.showtimeRepository
       .find({
         where: { movieId: movieId },
-        select: ['_id', 'movieId', 'theater', 'dateTime', 'duration'],
+        select: ['_id', 'uuid', 'movieId', 'theater', 'dateTime', 'duration'],
       })
       .catch(() => {
         new InternalServerErrorException();
@@ -22,11 +22,11 @@ export class ShowtimesService {
     return showtimes as Showtime[];
   }
 
-  async getSeatsByShowtimeId(showtimeId: string): Promise<Showtime> {
+  async getSeatsByShowtimeUuid(showtimeUuid: string): Promise<Showtime> {
     const showtime = await this.showtimeRepository
-      .findOneBy({ id: ObjectIdColumn(showtimeId) })
+      .findOneBy({ uuid: showtimeUuid })
       .catch(() => {
-        new InternalServerErrorException();
+        throw new InternalServerErrorException();
       });
     return showtime as Showtime;
   }

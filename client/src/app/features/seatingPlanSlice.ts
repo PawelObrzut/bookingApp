@@ -4,7 +4,7 @@ interface SeatingPlanState {
   isOpen: boolean
   movieDetails: {
     movieId: number | undefined
-    showtimeId: string
+    showtimeUuid: string
     time: string
   }
 }
@@ -13,7 +13,7 @@ const initialState: SeatingPlanState = {
   isOpen: false,
   movieDetails: {
     movieId: undefined,
-    showtimeId: "",
+    showtimeUuid: "",
     time: ""
   }
 };

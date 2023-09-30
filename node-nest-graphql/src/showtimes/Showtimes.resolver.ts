@@ -18,11 +18,11 @@ export class ShowtimesResolver {
   }
 
   @Query(() => Showtime)
-  async getSeatsByShowtimeId(
-    @Args('showtimeId', { type: () => String }) showtimeId: string,
+  async getSeatsByShowtimeUuid(
+    @Args('showtimeUuid', { type: () => String }) showtimeUuid: string,
   ): Promise<Showtime> {
     try {
-      return await this.showtimesService.getSeatsByShowtimeId(showtimeId);
+      return await this.showtimesService.getSeatsByShowtimeUuid(showtimeUuid);
     } catch (err) {
       throw new Error('Unable to fetch seats');
     }

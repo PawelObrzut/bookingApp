@@ -10,6 +10,7 @@
 export interface Showtimes_getShowtimesByMovieId {
   __typename: "Showtime";
   _id: string;
+  uuid: string;
   movieId: number;
   theater: string;
   dateTime: string;

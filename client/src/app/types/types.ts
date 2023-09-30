@@ -24,6 +24,7 @@ export interface IMovie {
 
 export interface IShowtime {
   _id: string,
+  uuid: string,
   movieId: number
   theater?: string
   dateTime?: string

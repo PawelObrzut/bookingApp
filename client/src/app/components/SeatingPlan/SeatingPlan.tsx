@@ -6,12 +6,12 @@ import { toggleSeatingPlan } from '../../features/seatingPlanSlice';
 import { TfiClose } from 'react-icons/tfi';
 
 import ShowtimesService from '../../services/showtimesServices/index'
-import { Seats_getSeatsByShowtimeId_seats } from '../../services/showtimesServices/__generated__/Seats';
+import { Seats_getSeatsByShowtimeUuid_seats } from '../../services/showtimesServices/__generated__/Seats';
 
 const Lounge = () => {
   const dispatch = useAppDispatch();
-  const showtimeId = useAppSelector((state) => state.seatingPlan.movieDetails.showtimeId);
-  const [seats, setSeats] = useState<Seats_getSeatsByShowtimeId_seats[]>([]);
+  const showtimeUuid = useAppSelector((state) => state.seatingPlan.movieDetails.showtimeUuid);
+  const [seats, setSeats] = useState<Seats_getSeatsByShowtimeUuid_seats[]>([]);
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
 
   const handleSelect = (row: number, seatNumber: number) => {
@@ -26,19 +26,18 @@ const Lounge = () => {
   useEffect(() => {
     const fetchSeats = async () => {
       try {
-        const data = await ShowtimesService.fetchSeats(showtimeId);
+        const data = await ShowtimesService.fetchSeats(showtimeUuid);
         setSeats(data);
       } catch (error) {
         console.error('Error fetching seats:', error);
       }
     };
-
     fetchSeats();
-  }, [showtimeId, dispatch])
+  }, [showtimeUuid, dispatch])
 
   return (
     <ul className={classes.lounge}>
-      <li className={classes.lounge__screen}></li>
+      <li className={classes.lounge__screen} onClick={() => console.log(seats)}></li>
       {
         seats.map(seat => (
           <li 
