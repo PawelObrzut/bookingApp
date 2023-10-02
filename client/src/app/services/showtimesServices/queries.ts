@@ -17,10 +17,23 @@ export const GET_SEATS = gql`
   query Seats($showtimeUuid: String!) {
     getSeatsByShowtimeUuid(showtimeUuid: $showtimeUuid) {
       seats {
-        row,
-        seat,
+        row
+        seat
         available
       }
     }
   }
-`
+`;
+
+export const SAVE_SEATS = gql`
+  mutation SetSeats($seatsData: [String!]!, $showtimeUuid: String!) {
+    saveSeats(seatsData: $seatsData, showtimeUuid: $showtimeUuid) {
+      uuid
+      seats {
+        row
+        seat
+        available
+      }
+    }
+  }
+`;

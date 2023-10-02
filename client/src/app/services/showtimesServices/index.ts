@@ -1,7 +1,8 @@
 import client from '../../../apollo/apollo';
-import { GET_SHOWTIMES, GET_SEATS } from './queries';
+import { GET_SHOWTIMES, GET_SEATS, SAVE_SEATS } from './queries';
 import { Showtimes_getShowtimesByMovieId } from '../showtimesServices/__generated__/Showtimes';
 import { Seats_getSeatsByShowtimeUuid_seats } from '../showtimesServices/__generated__/Seats';
+import { SetSeats_saveSeats_seats } from '../showtimesServices/__generated__/SetSeats';
 
 class ShowtimesService {
   public async fetchShowtimes(movieId: number): Promise<Showtimes_getShowtimesByMovieId[]> {
@@ -35,10 +36,28 @@ class ShowtimesService {
         throw err;
       });
 
-      if (response && response.data) {
+      if (response && response.data && response.data.getSeatsByShowtimeUuid) {
         return response.data.getSeatsByShowtimeUuid.seats;
       }
       return [];
+  }
+
+  public async setSeats(seatsData: string[], showtimeUuid: string): Promise<SetSeats_saveSeats_seats[]> {
+    const response = await client
+      .mutate({
+        mutation: SAVE_SEATS,
+        variables: {
+          seatsData: seatsData,
+          showtimeUuid: showtimeUuid,
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+    if (response && response.data) {
+      return response.data.saveSeats.seats
+    }
+    return [];
   }
 }
 

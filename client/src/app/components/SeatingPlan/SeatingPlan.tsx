@@ -23,9 +23,11 @@ const Auditorium = () => {
     }
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(selectedSeats)
     // make a mutation request to Showtimes collection
+    const updateSeats = await ShowtimesService.setSeats(selectedSeats, showtimeUuid);
+    setSeats(updateSeats);
   }
 
   useEffect(() => {
