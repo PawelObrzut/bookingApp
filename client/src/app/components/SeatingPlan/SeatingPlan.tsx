@@ -8,7 +8,7 @@ import { TfiClose } from 'react-icons/tfi';
 import ShowtimesService from '../../services/showtimesServices/index'
 import { Seats_getSeatsByShowtimeUuid_seats } from '../../services/showtimesServices/__generated__/Seats';
 
-const Lounge = () => {
+const Auditorium = () => {
   const dispatch = useAppDispatch();
   const showtimeUuid = useAppSelector((state) => state.seatingPlan.movieDetails.showtimeUuid);
   const [seats, setSeats] = useState<Seats_getSeatsByShowtimeUuid_seats[]>([]);
@@ -21,6 +21,11 @@ const Lounge = () => {
     } else {
       setSelectedSeats(prev => [...prev, seatKey]);
     }
+  }
+
+  const handleSubmit = () => {
+    console.log(selectedSeats)
+    // make a mutation request to Showtimes collection
   }
 
   useEffect(() => {
@@ -36,23 +41,32 @@ const Lounge = () => {
   }, [showtimeUuid, dispatch])
 
   return (
-    <ul className={classes.lounge}>
-      <li className={classes.lounge__screen} onClick={() => console.log(seats)}></li>
-      {
-        seats.map(seat => (
-          <li 
-            key={`${seat.row} ${seat.seat}`}
-            className={`
-              ${classes.lounge__seat} 
+    <>
+      <ul className={classes.audutorium}>
+        <li className={classes.audutorium__screen}></li>
+        {
+          seats.map(seat => (
+            <li
+              key={`${seat.row} ${seat.seat}`}
+              className={`
+              ${classes.audutorium__seat} 
               ${seat.available ? null : classes.sold}
               ${selectedSeats.includes(`${seat.row} ${seat.seat}`) ? classes.selected : ''}
             `}
-            onClick={() => handleSelect(seat.row, seat.seat)}  
-          >
-          </li>
-        ))
-      }
-    </ul>
+              onClick={() => handleSelect(seat.row, seat.seat)}
+            >
+            </li>
+          ))
+        }
+      </ul>
+      <div className={classes.order__wrapper}>
+        <span 
+          className={`${classes.buyTickets} theme_btn`}
+          onClick={handleSubmit}
+        >
+          Buy Tickets</span>
+      </div>
+    </>
   )
 }
 
@@ -63,7 +77,6 @@ const SeatingPlan = () => {
   const time = useAppSelector((state) => state.seatingPlan.movieDetails.time);
   const movie = useAppSelector((state) => state.repertoire.repertoire.find(movie => movie.id === movieId));
 
-
   return (
     <aside className={`${classes.seatingPlan} ${isOpen ? classes.visible : null}`}>
       <span className={classes.seatingPlan__closeButton} onClick={() => dispatch(toggleSeatingPlan())}>
@@ -73,7 +86,7 @@ const SeatingPlan = () => {
       <h2 className={classes.seatingPlan__title}>{movie?.title}</h2>
       <h3 className={classes.seatingPlan__time}>{time}</h3>
 
-      {isOpen && <Lounge />}
+      {isOpen && <Auditorium />}
     </aside>
   )
 }

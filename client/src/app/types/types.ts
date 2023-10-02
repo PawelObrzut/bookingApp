@@ -29,11 +29,11 @@ export interface IShowtime {
   theater?: string
   dateTime?: string
   duration?: string
-  seats?: Seat[]
+  seats?: ISeat[]
 }
 
-export interface Seat {
+export interface ISeat {
   row: number,
   seat: number,
-  available: boolean
+  available?: boolean
 }

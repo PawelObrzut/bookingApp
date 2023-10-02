@@ -38,7 +38,7 @@
   }
 }
 
-.lounge {
+.audutorium {
   position: relative;
   top: 20%;
   margin: 0 auto;
@@ -77,4 +77,16 @@
   background-color: rgba(40, 40, 40, 0.8);
   border-color: rgba(77, 77, 77, 0.8);
   cursor: not-allowed;
+}
+
+.order__wrapper {
+  position: relative;
+  top: 25%;
+}
+
+.buyTickets {
+  padding: 0.5rem 1rem;
+  &:hover {
+    background: linear-gradient(90deg, #c8006d, #a60059 48%, #7a0042);
+  }
 }

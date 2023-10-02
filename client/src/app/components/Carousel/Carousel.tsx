@@ -1,3 +1,10 @@
+/*
+!! Component not in use. Saved for future.
+* The slider in repertoire page is build with external package that I do not like
+* I like some of the solutions I build before but I was even less happy with it than with slick-npm-package
+*/
+
+
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadMovies } from "../../app/features/upcomingMoviesSlice";
