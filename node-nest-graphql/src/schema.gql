@@ -46,6 +46,7 @@ type Query {
 
 type Mutation {
   addMovie(newMovieData: NewMovieInput!): Movie!
+  saveSeats(seatsData: [String!]!, showtimeUuid: String!): Showtime!
 }
 
 input NewMovieInput {

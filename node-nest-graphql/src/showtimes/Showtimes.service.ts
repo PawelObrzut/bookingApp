@@ -30,4 +30,46 @@ export class ShowtimesService {
       });
     return showtime as Showtime;
   }
+
+  async saveSeats(
+    seatsData: string[],
+    showtimeUuid: string,
+  ): Promise<Showtime> {
+    try {
+      const showtime = await this.getSeatsByShowtimeUuid(showtimeUuid);
+
+      for (const seat of seatsData) {
+        const [row, seatNumber] = seat.split(' ').map(Number);
+        const isAvailable = showtime.seats.find(
+          (seat) => seat.row === row && seat.seat === seatNumber,
+        ).available;
+
+        if (!isAvailable) {
+          throw new Error('Selected seats are no loger available');
+        }
+      }
+
+      seatsData.forEach((seat) => {
+        const [row, seatNumber] = seat.split(' ').map(Number);
+        const seatIndex = showtime.seats.findIndex(
+          (seat) => seat.row === row && seat.seat === seatNumber,
+        );
+        showtime.seats[seatIndex] = {
+          ...showtime.seats[seatIndex],
+          available: false,
+        };
+      });
+
+      await this.showtimeRepository.findOneAndUpdate(
+        { uuid: showtimeUuid },
+        { $set: { seats: showtime.seats } },
+      );
+
+      // TODO: issue a ticket.
+
+      return showtime as Showtime;
+    } catch (err) {
+      throw err;
+    }
+  }
 }
