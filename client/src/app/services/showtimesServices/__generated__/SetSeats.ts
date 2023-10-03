@@ -16,7 +16,6 @@ export interface SetSeats_saveSeats_seats {
 
 export interface SetSeats_saveSeats {
   __typename: "Showtime";
-  uuid: string;
   seats: SetSeats_saveSeats_seats[];
 }
 

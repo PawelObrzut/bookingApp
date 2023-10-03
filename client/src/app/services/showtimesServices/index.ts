@@ -31,6 +31,7 @@ class ShowtimesService {
         variables: {
           showtimeUuid: showtimeUuid
         },
+        fetchPolicy: 'network-only'
       })
       .catch((err) => {
         throw err;

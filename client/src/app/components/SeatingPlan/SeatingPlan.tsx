@@ -7,12 +7,16 @@ import { TfiClose } from 'react-icons/tfi';
 
 import ShowtimesService from '../../services/showtimesServices/index'
 import { Seats_getSeatsByShowtimeUuid_seats } from '../../services/showtimesServices/__generated__/Seats';
+import { ApolloError } from '@apollo/client';
 
 const Auditorium = () => {
   const dispatch = useAppDispatch();
   const showtimeUuid = useAppSelector((state) => state.seatingPlan.movieDetails.showtimeUuid);
   const [seats, setSeats] = useState<Seats_getSeatsByShowtimeUuid_seats[]>([]);
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
 
   const handleSelect = (row: number, seatNumber: number) => {
     const seatKey = `${row} ${seatNumber}`;
@@ -24,10 +28,27 @@ const Auditorium = () => {
   }
 
   const handleSubmit = async () => {
-    console.log(selectedSeats)
-    // make a mutation request to Showtimes collection
-    const updateSeats = await ShowtimesService.setSeats(selectedSeats, showtimeUuid);
-    setSeats(updateSeats);
+    try {
+      const updateSeats = await ShowtimesService.setSeats(selectedSeats, showtimeUuid);
+      setSuccessMessage('Congratulations on your purchase');
+      setTimeout(() => {setSuccessMessage('')}, 2000);
+      setSeats(updateSeats);
+      setSelectedSeats([]);
+    } catch (err) {
+      if (err instanceof ApolloError) {
+        setErrorMessage(err.message);
+        setTimeout(() => {setErrorMessage('')}, 2000);
+        setSelectedSeats([]);
+        try {
+          const seats = await ShowtimesService.fetchSeats(showtimeUuid);
+          setSeats(seats);
+        } catch (err) {
+          if (err instanceof ApolloError) {
+            console.log(err.message);
+          }
+        }
+      }
+    }
   }
 
   useEffect(() => {
@@ -36,7 +57,7 @@ const Auditorium = () => {
         const data = await ShowtimesService.fetchSeats(showtimeUuid);
         setSeats(data);
       } catch (error) {
-        console.error('Error fetching seats:', error);
+        console.log(error);
       }
     };
     fetchSeats();
@@ -44,6 +65,8 @@ const Auditorium = () => {
 
   return (
     <>
+      {errorMessage && <span className={classes.message}>{errorMessage}</span>}
+      {successMessage && <span className={classes.message}>{successMessage}</span>}
       <ul className={classes.audutorium}>
         <li className={classes.audutorium__screen}></li>
         {
