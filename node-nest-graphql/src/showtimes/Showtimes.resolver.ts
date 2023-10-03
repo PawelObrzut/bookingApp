@@ -36,7 +36,6 @@ export class ShowtimesResolver {
     return await this.showtimesService
       .saveSeats(seatsData, showtimeUuid)
       .catch((err) => {
-        console.log(err);
         return err;
       });
   }
