@@ -1,25 +1,27 @@
+@use "../../../styles/helper/" as *;
+
 .slider {
   position: relative;
 }
 
 .arrow {
-  font-size: 3rem;
-  color: white;
+  font-size: 2rem;
+  color: $white;
   position: absolute;
   top: 40%;
   cursor: pointer;
 
   &__left {
-    left: 0;
+    left: 5%;
     &:hover {
-      color: rgb(217 50 137);
+      color: $primary;
     }
   }
 
   &__right {
-    right: 0;
+    right: 5%;
     &:hover {
-      color: rgb(217 50 137);
+      color: $primary;
     }
   }
 }

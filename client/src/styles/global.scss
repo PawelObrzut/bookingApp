@@ -7,22 +7,31 @@
 h2 {
   text-transform: uppercase;
   letter-spacing: 0.15rem;
+  font-size: 1.25rem;
   color: $white;
 }
 
 .container {
-  padding: $padding-medium; 
-  
-  @media screen and (max-width: $breakpoint-small) {
+  padding: $padding-baseline;
+
+  @media screen and (min-width: $breakpoint-small) {
     padding: $padding-small;
+  }
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding: $padding-medium;
   }
 
   @media screen and (min-width: $breakpoint-large) {
     padding: $padding-large;
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 
   @media screen and (min-width: $breakpoint-xlarge) {
-    padding: $padding-xlarge;
+    font-size: 1.25rem;
+    padding: 0 $padding-xlarge;
   }
 }
 

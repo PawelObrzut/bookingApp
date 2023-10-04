@@ -10,8 +10,8 @@ const Header = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <header className={`${classes.header}`}>
-      <span className={classes.logo}>
+    <header className={`${classes.header} container`}>
+      <span className={`${classes.logo} container`}>
         <Link to="/">Cinema</Link>
       </span>
 

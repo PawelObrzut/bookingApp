@@ -1,4 +1,4 @@
-
+@use "../../../styles/helper/" as *;
 
 .locationBar {
   width: 100dvw;
@@ -8,6 +8,6 @@
   align-items: center;
 
   &__location {
-    color: rgb(217 50 137);
+    color: $primary;
   }
 }

@@ -1,12 +1,14 @@
+@use "../../../styles/helper/" as *;
+
 @property --color-left {
   syntax: '<color>';
   inherits: false;
-  initial-value: rgb(150 150 150);
+  initial-value: $grey;
 }
 @property --color-right {
   syntax: '<color>';
   inherits: false;
-  initial-value: rgb(150 150 150);
+  initial-value: $grey;
 }
 
 .header {
@@ -15,7 +17,7 @@
   justify-content: flex-end;
   align-items: center;
   height: 100px;
-  color: white;
+  color: $white;
   position: relative;
 
   &__nav > ul {
@@ -36,21 +38,21 @@
   }
 
   &__nav.minimal {
-    @media (min-width: 1023px) {
+    @media (min-width: $breakpoint-large) {
       display: none;
     }
   }
 
   &__nav.full {
     display: none;
-    @media (min-width: 1023px) {
+    @media (min-width: $breakpoint-large) {
       display: inline-flex;
     }
   }
 }
 
 .logo {
-  color: rgb(217 50 137);
+  color: $primary;
   font-size: 1.5rem;
   font-family: 'Alfa Slab One';
   position: absolute;
@@ -58,7 +60,7 @@
 }
 
 .account {
-  color: white;
+  color: $white;
   position: relative;
   top: 1.5rem;
   margin: 0 2rem;

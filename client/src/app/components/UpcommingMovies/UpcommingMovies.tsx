@@ -43,7 +43,7 @@ const UpcommingMovies = () => {
   }
 
   return (
-    <section className={classes.slider}>
+    <section className={`${classes.slider} container`}>
       <h2>Upcomming Movies</h2>
       <Slider ref={sliderRef} {...settings}>
         { sliderCollection.map((movie: IMovie) => (

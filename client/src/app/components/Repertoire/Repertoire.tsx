@@ -26,8 +26,10 @@ const Repertoire = () => {
   }
 
   return (
-    <main>
-      Repertoire
+    <main className='container'>
+      <h2>
+        Repertoire
+      </h2>
       {
         repertoire.map((movie: IMovie) => (
           <div className={classes.movie} key={movie.id}>
