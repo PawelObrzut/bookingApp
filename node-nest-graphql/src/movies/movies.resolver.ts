@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-import { MoviesService } from './Movies.service';
-import { Movie } from './Movie.entity';
-import { NewMovieInput } from './NewMovie.input';
+import { MoviesService } from './movies.service';
+import { Movie } from './movie.entity';
+import { NewMovieInput } from './newMovie.input';
 
 @Resolver('Movie')
 export class MoviesResolver {

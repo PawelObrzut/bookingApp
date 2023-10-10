@@ -1,6 +1,6 @@
 import { Resolver, Query, Args, Int, Mutation } from '@nestjs/graphql';
-import { ShowtimesService } from './Showtimes.service';
-import { Showtime } from './Showtime.entity';
+import { ShowtimesService } from './showtimes.service';
+import { Showtime } from './showtime.entity';
 
 @Resolver('Showtime')
 export class ShowtimesResolver {

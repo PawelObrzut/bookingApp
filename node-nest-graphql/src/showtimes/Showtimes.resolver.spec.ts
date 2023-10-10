@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ShowtimesResolver } from './Showtimes.resolver';
+import { ShowtimesResolver } from './showtimes.resolver';
 
 describe('ShowtimesResolver', () => {
   let resolver: ShowtimesResolver;

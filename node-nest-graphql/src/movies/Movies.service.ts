@@ -1,8 +1,8 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
-import { Movie } from './Movie.entity';
-import { NewMovieInput } from './NewMovie.input';
+import { Movie } from './movie.entity';
+import { NewMovieInput } from './newMovie.input';
 
 @Injectable()
 export class MoviesService {

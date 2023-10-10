@@ -1,6 +1,6 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Showtime } from './Showtime.entity';
+import { Showtime } from './showtime.entity';
 import { MongoRepository } from 'typeorm';
 
 @Injectable()
