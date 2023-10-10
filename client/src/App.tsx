@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import HomePage from "./pages/HomePage/HomePage";
 import Repertoire from "./app/containers/Repertoire/index";
+import NotFound from './app/components/NotFound/NotFound';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/' element={<Repertoire />}></Route>
           <Route path='/repertoire' element={<Repertoire />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
     </>
