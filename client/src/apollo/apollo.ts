@@ -3,7 +3,7 @@ import { onError, ErrorResponse } from '@apollo/client/link/error';
 
 const errorLink = onError((error: ErrorResponse) => {
   if (error.graphQLErrors) {
-    error.graphQLErrors.forEach(({ message, locations, path }) => {
+    error.graphQLErrors.forEach(({ message }) => {
       alert(`GraphQL Error: ${message}`);
     });
   }

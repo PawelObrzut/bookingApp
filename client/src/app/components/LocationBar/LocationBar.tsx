@@ -1,4 +1,3 @@
-import React from 'react';
 import classes from './LocationBar.module.scss';
 import { SlLocationPin } from 'react-icons/sl';
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import classes from './SeatingPlan.module.scss';
 
 import { useAppSelector, useAppDispatch } from '../../hooks';
