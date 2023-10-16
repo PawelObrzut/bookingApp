@@ -1,64 +1,45 @@
 # Cinema Web Application
-Welcome to the Cinema Web Application! This project is designed to help users explore movie repertoire and book tickets with a user-friendly interface.
+
+This is a mvp of what I intend to build which is a cinema booking application. One can browse through repertoire, book a ticket, watch a trailer or read a description as well as write their own comments about the movies.
+
+With this project I explore the nestjs as a backend framework, typeOrm as accesing database (mongoDB) and graphQL as architecture to fetch for content. I am building Frontend using React-vite framework with single page application approach, styling is delivered using Sass and state management using redux toolkit.
 
 ***
 
-List of tasks for the FrontEnd
+You can see the project live at:
+https://cinemaapp-nqbn.onrender.com/
 
-1. Set-up react-vite _(done)_
-2. Add redux tlk _(inProgress)_
-3. Add Sass for easy maintnence of styling
-    - create modules for each component _(done)_
-    - create global variables (colors, paddings, margins) and apply it throughout the application
-    - use media queries for styling content for differenct screen sizes _(inProgress)_
-3. Create Single Page Application
-    - wrap add with browser router _(done)_
-    - indicate active route on header-navBar
-    - create layout for homepage
-    - create layout for reperoire _(inProgress)_
-        - Build Infinite Slider without help from external library. Now I am using react-slick which is fine but turns of functionality when all items are visible (min-with: 1200px) 
-    - create layout for movies
-    - create mobile menu _(done)_
-    - create layout for 404 not found route
-    - create layout for booking ticket
-4. Add session or JWT authentication
-5. Fetch content from the BackEnd _(inProgress)_
-    - set Apollo Client
+![preview3](/preview3.png)
+
+![preview2](/preview2.png)
 
 ***
 
-List of task for the BackEnd
+### Plan to develop this application further:
 
-1. Set up node server _(done)_
-2. Connect to db _(done)_
-    - connection with TypeOrm _(done)_
-3. Create API structure and expose endpoints for 
-    - upcoming movies _(done)_
-    - repertoire _(inProgress)_
-    - book a ticket
-4. Fetch Data form TheMovieDataBase API
-    - periodically update content using webhooks
-5. Authenticate users
 
-***
+There are many areas I wish to improve thus next published versions might differ substantional from this mvp.
 
-List of task for the Database
+List of ideas to add to the project:
 
-1. Create DB _(done)_
-    - create collections _(partially done)_
-    - create content _(partially done)_
-
-2. Set MongoCompas for the development process
-
-3. Decide on data structure and relations
-
-***
+    > add a calendar and repertuar for the whole upcomming week
+    > add a log-in and registration functionality
+    > improve redux logic
+    > add reviews section
+    > migrate from No-SQL to key-value database like couchbase
+    > add querrying tmdb for more content e.g.: get trailer youtube links
+    > write unit and e2e tests
 
 ## Getting Started
-Clone the repository to your local machine.
 
-#### Start FrontEnd
-Change directory to client and install dependecies. Run project locally.
+Copy the repository and install dependencies in client and server directories. 
+
+You will need to create **.env** file in the client with ```VITE_API_URL``` variable equal to url you wish the application to run at. 
+
+Another **.env** is required in the node directory with variables describing the ```PORT```, ```MONGO_DATABASE```, ```MONGO_USER```, ```MONGO_PASSWORD``` and ```MONGO_CLUSTER```
+
+
+**Start ReactAPP**
 
 ```bash
 cd client
@@ -66,26 +47,21 @@ npm install
 npm run dev
 ```
 
-#### Start BackEnd
-Change directory to node-nest-grapgql and install dependecies. 
-Create the __.env__ file in the root of the project
 
+**Start BackEnd**
 ```bash
-PORT=9000
-MONGO_DATABASE="Cinema-GraphQL" (*)
-MONGO_USER="User"
-MONGO_PASSWORD="Password"
-MONGO_CLUSTER="Cluster"
-```
-(*) TypeOrm reference the name of db and collection they need to match for correct conection
-
-Run project locally.
-
-```bash
-cd node-nest-grapgql
+cd node-nest-graphql
 npm install
 npm run start:dev
 ```
 
-Open your browser at
-http://localhost:5173/repertoire
+**Start Database**
+
+You need an instance of mongoDB with collections
+
+    * movies
+    * showtimes
+
+You may use .json files in the root folder as a source to feed your database collection.
+
+***
