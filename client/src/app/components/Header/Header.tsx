@@ -37,8 +37,8 @@ const Header = () => {
           <span><AiOutlineUser /> account</span>
           <div className={classes.account__dropdown}>
             <ul>
-              <li><AiOutlineUser /> <Link to="login">Log In</Link></li>
-              <li><RiMenuAddFill /> <Link to="register">Register</Link></li>
+              <li><AiOutlineUser /> <Link to="/login" className={classes.account__dropdown__item}>Log In</Link></li>
+              <li><RiMenuAddFill /> <Link to="/register" className={classes.account__dropdown__item}>Register</Link></li>
             </ul>
           </div>
         </div>

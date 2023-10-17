@@ -62,14 +62,28 @@
 .account {
   color: $white;
   position: relative;
-  top: 1.5rem;
+
   margin: 0 2rem;
   height: 3rem;
   width: 10rem;
   text-align: center;
   line-height: 3rem;
+  cursor: pointer;
 
   &__dropdown {
     display: none;
+    background-color: $dark-grey;
+
+    &__item {
+      transition: color ease-in-out 0.5s; 
+      font-size: 0.9rem;
+      &:hover {
+        color: $grey;
+      }
+    }
+  }
+
+  &:hover &__dropdown {
+    display: block;
   }
 }
