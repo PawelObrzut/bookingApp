@@ -1,6 +1,8 @@
 import { Resolver, Query, Args, Int, Mutation } from '@nestjs/graphql';
 import { ShowtimesService } from './showtimes.service';
 import { Showtime } from './showtime.entity';
+import { AuthGuard } from 'src/auth/auth.guard';
+import { UseGuards } from '@nestjs/common';
 
 @Resolver('Showtime')
 export class ShowtimesResolver {
@@ -29,6 +31,7 @@ export class ShowtimesResolver {
   }
 
   @Mutation(() => Showtime)
+  @UseGuards(AuthGuard)
   async saveSeats(
     @Args('seatsData', { type: () => [String] }) seatsData: string[],
     @Args('showtimeUuid', { type: () => String }) showtimeUuid: string,

@@ -1,3 +1,7 @@
+/*
+ TODO: Save users in seperate document in DB hashing passwords with bcrypt
+ */
+
 import { Injectable } from '@nestjs/common';
 
 export type User = {
@@ -11,13 +15,13 @@ export class UsersService {
   private readonly users = [
     {
       userId: 1,
-      username: 'john',
-      password: 'changeme',
+      username: 'John',
+      password: 'notAstrongPassword123',
     },
     {
       userId: 2,
-      username: 'maria',
-      password: 'guess',
+      username: 'Maria',
+      password: 'easyPassword?0',
     },
   ];
 
