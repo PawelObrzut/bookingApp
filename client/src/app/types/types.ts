@@ -37,3 +37,8 @@ export interface ISeat {
   seat: number,
   available?: boolean
 }
+
+export interface Icredentials {
+  username: string,
+  password: string
+}
