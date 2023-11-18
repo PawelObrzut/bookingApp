@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import classes from './LoginForm.module.scss';
 import { loginUser } from '../../services/authServices';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
@@ -7,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { Icredentials } from '../../types/types';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const dispatch: ThunkDispatch<RootState, undefined, AnyAction> = useDispatch();
 
   const [credentials, setCredentials] = useState<Icredentials>({
@@ -16,13 +18,13 @@ const LoginForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     dispatch(loginUser(credentials))
 
     setCredentials({
       username: '',
       password: ''
     })
+    navigate('/repertoire');
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

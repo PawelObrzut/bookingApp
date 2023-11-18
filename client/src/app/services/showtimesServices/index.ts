@@ -1,4 +1,5 @@
 import client from '../../../apollo/apollo';
+import authClient from '../../../apollo/authApollo';
 import { GET_SHOWTIMES, GET_SEATS, SAVE_SEATS } from './queries';
 import { Showtimes_getShowtimesByMovieId } from '../showtimesServices/__generated__/Showtimes';
 import { Seats_getSeatsByShowtimeUuid_seats } from '../showtimesServices/__generated__/Seats';
@@ -44,13 +45,13 @@ class ShowtimesService {
   }
 
   public async setSeats(seatsData: string[], showtimeUuid: string): Promise<SetSeats_saveSeats_seats[]> {
-    const response = await client
+    const response = await authClient
       .mutate({
         mutation: SAVE_SEATS,
         variables: {
           seatsData: seatsData,
           showtimeUuid: showtimeUuid,
-        }
+        },
       })
       .catch((err) => {
         throw err;
