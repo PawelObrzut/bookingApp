@@ -36,17 +36,31 @@ type Showtime {
   seats: [Seat!]!
 }
 
+type User {
+  """Example field (placeholder)"""
+  id: Int!
+  username: String!
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
 type Query {
   getAllMovies: [Movie!]!
   getMoviesGtReleaseDate(date: String!): [Movie!]!
   getRepertoire: [Movie!]!
   getShowtimesByMovieId(movieId: Int!): [Showtime!]!
   getSeatsByShowtimeUuid(showtimeUuid: String!): Showtime!
+  users: [User!]!
+  user(username: String!): User!
 }
 
 type Mutation {
   addMovie(newMovieData: NewMovieInput!): Movie!
   saveSeats(seatsData: [String!]!, showtimeUuid: String!): Showtime!
+  login(loginInput: LoginInput!): LoginResponse!
 }
 
 input NewMovieInput {
@@ -64,4 +78,9 @@ input NewMovieInput {
   vote_average: Int!
   vote_count: Int!
   inRepertoire: Boolean
+}
+
+input LoginInput {
+  username: String!
+  password: String!
 }
