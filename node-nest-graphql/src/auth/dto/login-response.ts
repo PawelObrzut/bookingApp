@@ -3,9 +3,12 @@ import { User } from 'src/users/entities/user.entity';
 
 @ObjectType()
 export class LoginResponse {
-  @Field()
+  @Field({ description: 'JSON Web Token' })
   access_token: string;
 
   @Field(() => User)
   user: User;
+
+  @Field()
+  bonus: string;
 }
