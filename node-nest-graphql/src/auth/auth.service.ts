@@ -29,7 +29,6 @@ export class AuthService {
         username: user.username,
         sub: user.id,
       }),
-      bonus: 'more more',
       user,
     };
   }

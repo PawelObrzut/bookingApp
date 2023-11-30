@@ -46,7 +46,6 @@ type LoginResponse {
   """JSON Web Token"""
   access_token: String!
   user: User!
-  bonus: String!
 }
 
 type Query {
