@@ -4,6 +4,7 @@ import moviesReducer from './features/moviesSlice';
 import sliderReducer from './features/sliderSlice';
 import repertoireReducer from './features/repertoireSlice';
 import seatingPlanReducer from './features/seatingPlanSlice';
+import authReducer from './features/authSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     slides: sliderReducer,
     repertoire: repertoireReducer,
     seatingPlan: seatingPlanReducer,
+    auth: authReducer
   },
 })
 

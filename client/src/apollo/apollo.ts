@@ -1,5 +1,6 @@
 import { ApolloClient, InMemoryCache, HttpLink, from } from '@apollo/client';
 import { onError, ErrorResponse } from '@apollo/client/link/error';
+import url from '../apiURL/apiURL';
 
 const errorLink = onError((error: ErrorResponse) => {
   if (error.graphQLErrors) {
@@ -14,8 +15,7 @@ const errorLink = onError((error: ErrorResponse) => {
 
 const link = from([
   errorLink,
-  // new HttpLink({uri: "http://localhost:9000/graphql"})
-  new HttpLink({uri: "https://bookingapp-production-0420.up.railway.app/graphql"})
+  new HttpLink({uri: `${url}/graphql`})
 ]);
 
 const client = new ApolloClient({
