@@ -7,6 +7,7 @@ import { RootState } from '../../store';
 import { useDispatch } from 'react-redux';
 import { Icredentials } from '../../types/types';
 import { logIn } from '../../services/authServices';
+import { closeMenu } from '../../features/menuModalSlice';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const LoginForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(logIn(credentials));
+    dispatch(closeMenu())
 
     setCredentials({
       username: '',

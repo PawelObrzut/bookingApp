@@ -19,7 +19,7 @@ export const logIn = createAsyncThunk(
           password: loginInput.password,
         }
       }
-    })
-    console.log('thunk:::', response.data.login);
+    });
     return response.data.login as loginUser_login;
   });
+  
