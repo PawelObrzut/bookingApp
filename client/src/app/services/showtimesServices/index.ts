@@ -4,6 +4,8 @@ import { Showtimes_getShowtimesByMovieId } from '../showtimesServices/__generate
 import { Seats_getSeatsByShowtimeUuid_seats } from '../showtimesServices/__generated__/Seats';
 import { SetSeats_saveSeats_seats } from '../showtimesServices/__generated__/SetSeats';
 
+import authClient from '../../../apollo/authApollo';
+
 class ShowtimesService {
   public async fetchShowtimes(movieId: number): Promise<Showtimes_getShowtimesByMovieId[]> {
     const response = await client
@@ -44,7 +46,7 @@ class ShowtimesService {
   }
 
   public async setSeats(seatsData: string[], showtimeUuid: string): Promise<SetSeats_saveSeats_seats[]> {
-    const response = await client
+    const response = await authClient
       .mutate({
         mutation: SAVE_SEATS,
         variables: {

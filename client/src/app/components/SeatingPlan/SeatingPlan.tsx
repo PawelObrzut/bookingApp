@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import classes from './SeatingPlan.module.scss';
 
 import { useAppSelector, useAppDispatch } from '../../hooks';
@@ -16,7 +17,7 @@ const Auditorium = () => {
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-
+  const navigate = useNavigate();
 
   const handleSelect = (row: number, seatNumber: number) => {
     const seatKey = `${row} ${seatNumber}`;
@@ -31,14 +32,18 @@ const Auditorium = () => {
     try {
       const updateSeats = await ShowtimesService.setSeats(selectedSeats, showtimeUuid);
       setSuccessMessage('Congratulations on your purchase');
-      setTimeout(() => {setSuccessMessage('')}, 2000);
+      setTimeout(() => {setSuccessMessage('')}, 3000);
       setSeats(updateSeats);
       setSelectedSeats([]);
     } catch (err) {
       if (err instanceof ApolloError) {
-        setErrorMessage(err.message);
-        setTimeout(() => {setErrorMessage('')}, 2000);
+        setErrorMessage(`${err.message}: You have to be logged in prior to booking a ticket. Redirecting...`);
+        setTimeout(() => {
+          setErrorMessage('');
+          navigate('/login');
+        }, 2000);
         setSelectedSeats([]);
+
         try {
           const seats = await ShowtimesService.fetchSeats(showtimeUuid);
           setSeats(seats);
