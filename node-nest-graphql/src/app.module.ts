@@ -21,7 +21,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}/?retryWrites=true&w=majority`,
+      url: process.env.MONGO_URI,
       entities: [join(__dirname, '**/**.entity{.ts,.js}')],
       database: 'Movies-GraphQL',
       synchronize: true,
