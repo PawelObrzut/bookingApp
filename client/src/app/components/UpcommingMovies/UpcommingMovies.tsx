@@ -27,10 +27,13 @@ const UpcommingMovies = () => {
     if (sliderRef.current) {
       sliderRef.current.slickPrev();
     }
+    console.log('jaha', sliderCollection)
   };
 
   useEffect(() => {
-    const currentDate = new Date().toISOString().slice(0,10);
+    // const currentDate = new Date().toISOString().slice(0,10);
+    const currentDate = "2023-09-20";
+    console.log(currentDate)
     if (status === "idle") {
       dispatch(fetchMoviesGtDate(currentDate));
     }
